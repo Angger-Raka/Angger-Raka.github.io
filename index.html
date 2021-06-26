@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Main-->
+    <link rel="stylesheet" href="main.css">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Test Form</title>
+  </head>
+  <body>
+    <h1>Testing Form</h1>
+
+    <div class="alert alert-success alert-dismissible fade show d-none my-alert" role="alert">
+        <strong>Terimakasih</strong>, atas feedback anda.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>  
+
+    <form action="" name='tester-form'>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Nama Lengkap</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nama Lengkap yaaa" name="nama">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="email">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="pesan"></textarea>
+        </div>
+        <button class="btn btn-primary btn-kirim" type="submit">Send</button>
+
+
+        <button class="btn btn-primary btn-loading d-none" type="button" disabled>
+            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+            Loading...
+          </button>
+    </form>
+
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwZIHf3MjFroSWXgGR3ugRFGXtNIGV_OXzY-3kNAO33q6ew7GKqtXW2JmmY9jz6Hmob/exec'
+        const form = document.forms['tester-form']
+        const btnKirim = document.querySelector('.btn-kirim');
+        const btnLoading = document.querySelector('.btn-loading');
+        const myAlert = document.querySelector('.my-alert');
+
+
+
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          //ketika tombol submit diklik
+          //tampilkan tombol loading, hilangkan tombol kirim
+          btnKirim.classList.toggle('d-none');
+          btnLoading.classList.toggle('d-none');
+
+
+
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                // tampilkan tombol kirim, hilangkan tombol loading
+                btnKirim.classList.toggle('d-none');
+                btnLoading.classList.toggle('d-none');
+                //tampilkan alert
+                myAlert.classList.toggle('d-none');
+                //reset form
+                form.reset();
+                console.log('Success!', response);
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+  </body>
+</html>
