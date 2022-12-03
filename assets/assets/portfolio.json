@@ -1,0 +1,95 @@
+{
+    "name_and_link": [
+        "Angger Raka Sanjaya",
+        "https://github.com/Angger-Raka/"
+    ],
+    "designation": [
+        "Student.",
+        "Juinor Flutter Developer."
+    ],
+    "resume_download_link": "",
+    "social_media": {
+        "1": [
+            "https://github.com/Angger-Raka/",
+            "github"
+        ],
+        "2": [
+            "https://leetcode.com/",
+            "leetcode"
+        ],
+        "3": [
+            "https://linkedin.com/in/angger-raka-sanjaya-12bb7b253/",
+            "linkedin"
+        ],
+        "4": [
+            "https://stackoverflow.com/",
+            "stackoverflow"
+        ],
+        "5": [
+            "https://twitter.com/",
+            "twitter"
+        ],
+        "6": [
+            "mailto:anggerrakasanjayapamungkas@gmail.com",
+            "email"
+        ]
+    },
+    "contact_me": {
+        "location": "Yogyakarta, Indonesia",
+        "open_for_opportunities": "Yes",
+        "picture": "picture.jpg"
+    },
+    "about": "A passionate Software Developer 🚀 | Student 📝",
+    "bio": "SMK Negeri 2 Depok Sleman student. I spend my time learning new things and developing my skills. I am a passionate learner who's always willing to learn and work across technologies and domains.",
+    "what_i_do": {
+        "tools": [
+            "flutter.png",
+            "linux.png",
+            "cpp.png",
+            "python.png",
+            "php.png",
+            "mysql.png",
+            "bash.png",
+            "git.png"
+        ],
+        "proficiency": [
+            "Flutter--50",
+            "C/C++/Java/Python--60",
+            "GNU/Linux--30",
+            "Git--50"
+        ]
+    },
+    "education": {
+        "1": {
+            "institute": "SMK Negeri 2 Depok Sleman",
+            "location": "Sleman, Yogyakarta",
+            "years": "2019 - 2023",
+            "description": "Sistem Informasi Jaringan dan Apkikasi",
+            "grades": "on going",
+            "logo": "stembayo.png"
+        }
+    },
+    "experience": {
+        "1":{
+            "name":"Surveilance Security Smart Camera Team",
+            "role":"Member",
+            "period":"10 Desember 2021",
+            "description":"We make a smart camera that can detect people and send the data to the server. We use OpenCV and Python for the detection and the server is made with NodeJS and ExpressJS. We use MQTT for the communication between the server and the camera.",
+            "image_name":"stembayo.png"
+        }
+    },
+    "projects": {
+        "1": {
+            "name": "Simple Chat App",
+            "tech_stack_used": "Flutter, Firebase",
+            "description": "A simple chat app with authentication and realtime chat features. but still on going project.",
+            "general_or_github_link": "https://github.com/Angger-Raka/simple-chat-private"
+        }
+    },
+    "achievements": {
+        "1": {
+            "description": "participated in AI for Youth Program by Intel",
+            "link": "https://www.linkedin.com/posts/juecell_hacknpitch-include-hackathon-activity-6849231722333249536-qqw2"
+        }
+    }
+}
