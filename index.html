@@ -3,197 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulir Order Percetakan</title>
-    <!-- Memuat Tailwind CSS -->
+    <title>Pilih Jenis Pesanan</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Memuat Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Memuat library SheetJS untuk membaca file Excel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <style>
-        /* Menggunakan font Inter sebagai default */
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        /* Style tambahan untuk transisi dan fokus */
-        .form-input {
-            transition: all 0.3s ease-in-out;
-        }
-        .form-input:focus {
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
-            border-color: #3B82F6;
-        }
-        /* Style untuk pesan notifikasi */
-        .notification {
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-        }
+        body { font-family: 'Inter', sans-serif; }
+        .card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+        .notification { transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; }
     </style>
 </head>
-<body class="bg-blue-50">
+<body class="bg-blue-50 flex items-center justify-center min-h-screen p-4">
 
-    <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-3xl">
-        
-        <!-- Header Form -->
-        <div class="text-center mb-8">
-            <h1 class="text-3xl sm:text-4xl font-bold text-gray-800">Formulir Order Percetakan</h1>
-            <p class="text-gray-600 mt-2">Silakan isi detail pesanan Anda di bawah ini.</p>
+    <div class="w-full max-w-4xl mx-auto">
+        <div class="text-center mb-10">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-800">Pilih Jenis Pesanan Anda</h1>
+            <p class="text-gray-600 mt-2">Kami menyediakan dua cara mudah untuk melakukan pemesanan.</p>
         </div>
 
-        <!-- Form Container -->
-        <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-lg">
-            <form id="order-form">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    
-                    <!-- Kolom Kiri -->
-                    <div class="space-y-6">
-                        <div>
-                            <label for="customer-name" class="block text-sm font-medium text-gray-700 mb-1">Nama Pemesan</label>
-                            <input type="text" id="customer-name" name="nama-pemesan" placeholder="Contoh: Budi Santoso" class="form-input w-full p-3 border border-gray-300 rounded-lg" required>
-                        </div>
-                        <div>
-                            <label for="customer-phone" class="block text-sm font-medium text-gray-700 mb-1">Nomor Telepon</label>
-                            <input type="tel" id="customer-phone" name="nomor-telepon" placeholder="Contoh: 081234567890" class="form-input w-full p-3 border border-gray-300 rounded-lg" required>
-                        </div>
-                        <div>
-                            <label for="order-title" class="block text-sm font-medium text-gray-700 mb-1">Judul Pesanan</label>
-                            <input type="text" id="order-title" name="judul-pesanan" placeholder="Contoh: Buku Panduan Karyawan" class="form-input w-full p-3 border border-gray-300 rounded-lg" required>
-                        </div>
-                        <div>
-                            <label for="book-size" class="block text-sm font-medium text-gray-700 mb-1">Ukuran Jadi</label>
-                            <input type="text" id="book-size" name="ukuran-jadi" placeholder="Contoh: 17,6 x 25 cm" class="form-input w-full p-3 border border-gray-300 rounded-lg" required>
-                        </div>
-                         <div>
-                            <label for="page-count" class="block text-sm font-medium text-gray-700 mb-1">Jumlah Halaman</label>
-                            <input type="number" id="page-count" name="jumlah-halaman" placeholder="Contoh: 60" class="form-input w-full p-3 border border-gray-300 rounded-lg" required>
-                        </div>
-                        <div>
-                            <label for="paper-type" class="block text-sm font-medium text-gray-700 mb-1">Jenis Kertas Isi</label>
-                            <input type="text" id="paper-type" name="jenis-kertas-isi" placeholder="Contoh: HVS 70 gr" class="form-input w-full p-3 border border-gray-300 rounded-lg" required>
-                        </div>
-                    </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Kartu 1: Pesanan Kustom -->
+            <div class="card bg-white p-8 rounded-2xl shadow-lg text-center flex flex-col items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-blue-600 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                <h2 class="text-2xl font-bold text-gray-800 mb-2">Pesanan Kustom</h2>
+                <p class="text-gray-600 mb-6 flex-grow">Isi formulir online untuk satu jenis pesanan dengan spesifikasi yang detail.</p>
+                <a href="form-tunggal.html" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                    Buat Pesanan
+                </a>
+            </div>
 
-                    <!-- Kolom Kanan -->
-                    <div class="space-y-6">
-                        <div>
-                            <label for="cover-paper" class="block text-sm font-medium text-gray-700 mb-1">Jenis Kertas Sampul</label>
-                            <input type="text" id="cover-paper" name="jenis-kertas-sampul" placeholder="Contoh: Art Carton 260 gr" class="form-input w-full p-3 border border-gray-300 rounded-lg" required>
-                        </div>
-                        <div>
-                            <label for="cover-finishing" class="block text-sm font-medium text-gray-700 mb-1">Finishing Sampul</label>
-                            <select id="cover-finishing" name="finishing-sampul" class="form-input w-full p-3 border border-gray-300 rounded-lg" required>
-                                <option>Tanpa Laminasi</option>
-                                <option>Laminasi Doff</option>
-                                <option>Laminasi Glossy</option>
-                                <option>Spot UV</option>
-                                <option>Emboss</option>
-                                <option>Lainnya (jelaskan di catatan)</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="binding" class="block text-sm font-medium text-gray-700 mb-1">Jilid</label>
-                             <select id="binding" name="jilid" class="form-input w-full p-3 border border-gray-300 rounded-lg" required>
-                                <option>Binding</option>
-                                <option>Staples</option>
-                                <option>Lainnya (jelaskan di catatan)</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="quantity" class="block text-sm font-medium text-gray-700 mb-1">Jumlah Cetak</label>
-                            <input type="number" id="quantity" name="jumlah-cetak" placeholder="Contoh: 70" class="form-input w-full p-3 border border-gray-300 rounded-lg" required>
-                        </div>
-                    </div>
+            <!-- Kartu 2: Import Pesanan Massal -->
+            <div class="card bg-white p-8 rounded-2xl shadow-lg flex flex-col">
+                <div class="text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-blue-600 mb-4 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Import Pesanan Massal</h2>
+                    <p class="text-gray-600 mb-6">Unduh template, isi, dan unggah file Excel untuk beberapa pesanan sekaligus.</p>
                 </div>
-
-                <!-- Catatan Tambahan -->
-                <div class="mt-6">
-                    <label for="notes" class="block text-sm font-medium text-gray-700 mb-1">Catatan Tambahan</label>
-                    <textarea id="notes" name="catatan-tambahan" rows="4" placeholder="Jelaskan detail lain jika ada, misal: warna cetak, permintaan khusus, dll." class="form-input w-full p-3 border border-gray-300 rounded-lg"></textarea>
+                <div class="space-y-4 mt-auto">
+                    <button id="download-template" class="w-full bg-gray-200 text-gray-800 font-bold py-3 px-6 rounded-lg hover:bg-gray-300">1. Unduh Template</button>
+                    <input type="file" id="excel-file" class="hidden" accept=".xlsx, .xls, .csv">
+                    <label for="excel-file" id="upload-label" class="w-full block bg-gray-200 text-gray-800 font-bold py-3 px-6 rounded-lg hover:bg-gray-300 text-center cursor-pointer">2. Pilih File Excel</label>
+                    <button id="submit-bulk" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed" disabled>3. Unggah & Kirim</button>
                 </div>
-
-                <!-- Tombol Submit -->
-                <div class="mt-8 text-center">
-                    <button type="submit" id="submit-button" class="w-full md:w-auto bg-blue-600 text-white font-bold py-3 px-10 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition-transform transform hover:scale-105">
-                        Kirim Pesanan
-                    </button>
-                </div>
-            </form>
-        </div>
-        
-        <!-- Pesan Notifikasi (Tersembunyi) -->
-        <div id="notification" class="notification fixed top-5 right-5 py-3 px-6 rounded-lg shadow-xl opacity-0 transform translate-y-[-20px]">
-            <!-- Pesan akan diisi oleh JavaScript -->
+            </div>
         </div>
     </div>
+    
+    <!-- Pesan Notifikasi (Tersembunyi) -->
+    <div id="notification" class="notification fixed top-5 right-5 py-3 px-6 rounded-lg shadow-xl opacity-0 transform translate-y-[-20px]"></div>
 
     <script>
-        const form = document.getElementById('order-form');
-        const submitButton = document.getElementById('submit-button');
-        const notification = document.getElementById('notification');
-        
         // ====================================================================================
         // GANTI URL DI BAWAH INI DENGAN URL HASIL DEPLOYMENT APPS SCRIPT ANDA
         // ====================================================================================
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxL6_9a1yVuUHe7uasxv8mKu8-7_goNbEPrITQDK2CR6aB0L5lwTT_p1mIBoUxN3wWn/exec';
         // ====================================================================================
 
-        form.addEventListener('submit', function(e) {
-            e.preventDefault(); // Mencegah form dikirim secara default
-            
-            // Nonaktifkan tombol dan tampilkan status loading
-            submitButton.disabled = true;
-            submitButton.textContent = 'Mengirim...';
+        const downloadBtn = document.getElementById('download-template');
+        const fileInput = document.getElementById('excel-file');
+        const uploadLabel = document.getElementById('upload-label');
+        const submitBulkBtn = document.getElementById('submit-bulk');
+        const notification = document.getElementById('notification');
+        let workbookData = null;
 
-            // --- PERUBAHAN UNTUK FORMAT NOMOR HP ---
-            const phoneInput = document.getElementById('customer-phone');
-            let originalPhoneValue = phoneInput.value; // Simpan nilai asli
-            if (phoneInput.value.startsWith('0')) {
-                phoneInput.value = '62' + phoneInput.value.substring(1);
+        // 1. Fungsi untuk mengunduh template
+        downloadBtn.addEventListener('click', () => {
+            const headers = [
+                "Nama Pemesan", "Nomor Telepon", "Judul Pesanan", "Ukuran Jadi", "Jumlah Halaman", 
+                "Jenis Kertas Isi", "Jenis Kertas Sampul", "Finishing Sampul", "Jilid", 
+                "Jumlah Cetak", "Catatan Tambahan"
+            ];
+            const worksheet = XLSX.utils.aoa_to_sheet([headers]);
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, "Template Pesanan");
+            XLSX.writeFile(workbook, "Template_Pesanan_Massal.xlsx");
+        });
+
+        // 2. Fungsi untuk membaca file yang dipilih
+        fileInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                uploadLabel.textContent = file.name;
+                uploadLabel.classList.add('bg-green-200', 'text-green-800');
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const data = new Uint8Array(e.target.result);
+                    const workbook = XLSX.read(data, { type: 'array' });
+                    const firstSheetName = workbook.SheetNames[0];
+                    const worksheet = workbook.Sheets[firstSheetName];
+                    workbookData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+                    submitBulkBtn.disabled = false;
+                };
+                reader.readAsArrayBuffer(file);
             }
-            // --- AKHIR PERUBAHAN ---
+        });
 
-            const formData = new FormData(form);
+        // 3. Fungsi untuk mengirim data massal
+        submitBulkBtn.addEventListener('click', () => {
+            if (!workbookData || workbookData.length < 2) {
+                showNotification('File kosong atau hanya berisi header.', 'error');
+                return;
+            }
 
-            // Kirim data ke Google Apps Script menggunakan fetch
-            fetch(scriptURL, { method: 'POST', body: formData })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Success!', data);
-                    showNotification('Pesanan berhasil dikirim!', 'success');
-                    form.reset(); // Kosongkan form
-                })
-                .catch(error => {
-                    console.error('Error!', error.message);
-                    showNotification('Gagal mengirim pesanan. Coba lagi.', 'error');
-                    phoneInput.value = originalPhoneValue; // Kembalikan nilai asli jika gagal
-                })
-                .finally(() => {
-                    // Aktifkan kembali tombol setelah selesai
-                    submitButton.disabled = false;
-                    submitButton.textContent = 'Kirim Pesanan';
+            submitBulkBtn.disabled = true;
+            submitBulkBtn.textContent = 'Mengirim...';
+
+            // Mengubah array menjadi format yang lebih mudah diolah script
+            const headers = workbookData[0].map(h => h.toLowerCase().replace(/ /g, '-'));
+            const dataToSend = workbookData.slice(1).map(row => {
+                let obj = {};
+                headers.forEach((header, index) => {
+                    obj[header] = row[index] || "";
                 });
+                return obj;
+            });
+
+            fetch(`${scriptURL}?action=uploadBulk`, {
+                method: 'POST',
+                mode: 'no-cors', // Diperlukan karena Apps Script redirect
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(dataToSend)
+            })
+            .then(() => {
+                showNotification(`Berhasil mengirim ${dataToSend.length} pesanan!`, 'success');
+                fileInput.value = ''; // Reset input file
+                uploadLabel.textContent = '2. Pilih File Excel';
+                uploadLabel.classList.remove('bg-green-200', 'text-green-800');
+                workbookData = null;
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                showNotification('Gagal mengirim pesanan. Coba lagi.', 'error');
+            })
+            .finally(() => {
+                submitBulkBtn.disabled = true;
+                submitBulkBtn.textContent = '3. Unggah & Kirim';
+            });
         });
 
         function showNotification(message, type) {
             notification.textContent = message;
-            if (type === 'success') {
-                notification.className = 'notification fixed top-5 right-5 bg-green-500 text-white py-3 px-6 rounded-lg shadow-xl opacity-0 transform translate-y-[-20px]';
-            } else {
-                notification.className = 'notification fixed top-5 right-5 bg-red-500 text-white py-3 px-6 rounded-lg shadow-xl opacity-0 transform translate-y-[-20px]';
-            }
-
-            // Tampilkan notifikasi
-            setTimeout(() => {
-                notification.style.opacity = '1';
-                notification.style.transform = 'translateY(0)';
-            }, 100);
-
-            // Sembunyikan notifikasi setelah 4 detik
-            setTimeout(() => {
-                notification.style.opacity = '0';
-                notification.style.transform = 'translateY(-20px)';
-            }, 4000);
+            notification.className = `notification fixed top-5 right-5 text-white py-3 px-6 rounded-lg shadow-xl opacity-0 transform translate-y-[-20px] ${type === 'success' ? 'bg-green-500' : 'bg-red-500'}`;
+            setTimeout(() => { notification.style.opacity = '1'; notification.style.transform = 'translateY(0)'; }, 100);
+            setTimeout(() => { notification.style.opacity = '0'; notification.style.transform = 'translateY(-20px)'; }, 5000);
         }
     </script>
-
 </body>
 </html>
