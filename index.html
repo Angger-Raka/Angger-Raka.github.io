@@ -57,22 +57,21 @@
 </head>
 <body class="text-gray-800 antialiased selection:bg-primary-500 selection:text-white flex flex-col min-h-screen">
 
+    <!-- Data Source -->
+    <script src="data.js"></script>
+
     <!-- Navbar -->
     <nav class="fixed w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-100 shadow-sm transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="#" class="text-2xl font-bold text-primary-600 tracking-tight">JohnDoe.</a>
+                    <a href="#" id="nav-logo" class="text-2xl font-bold text-primary-600 tracking-tight"></a>
                 </div>
 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#home" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Beranda</a>
-                    <a href="#about" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Tentang</a>
-                    <a href="#skills" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Keahlian</a>
-                    <a href="#projects" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Portofolio</a>
-                    <a href="#contact" class="bg-primary-600 text-white px-5 py-2 rounded-full font-medium hover:bg-primary-700 transition-colors shadow-md shadow-primary-500/30">Hubungi Saya</a>
+                <div id="nav-desktop-links" class="hidden md:flex space-x-8 items-center">
+                    <!-- Links injected via JS -->
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -88,12 +87,8 @@
 
         <!-- Mobile Menu Panel (Hidden by default) -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 shadow-lg absolute w-full">
-            <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col">
-                <a href="#home" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 rounded-md">Beranda</a>
-                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 rounded-md">Tentang</a>
-                <a href="#skills" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 rounded-md">Keahlian</a>
-                <a href="#projects" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 rounded-md">Portofolio</a>
-                <a href="#contact" class="block px-3 py-2 text-base font-medium text-primary-600 hover:bg-primary-50 rounded-md mt-4 border border-primary-100 text-center">Hubungi Saya</a>
+            <div id="nav-mobile-links" class="px-4 pt-2 pb-6 space-y-2 flex flex-col">
+                <!-- Links injected via JS -->
             </div>
         </div>
     </nav>
@@ -104,23 +99,23 @@
         <!-- Hero Section -->
         <section id="home" class="pt-32 pb-20 lg:pt-48 lg:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
             <div class="lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 fade-in">
-                <div class="inline-block px-4 py-1.5 rounded-full bg-primary-50 text-primary-600 font-medium text-sm mb-2 border border-primary-100">
-                    👋 Halo, Selamat Datang!
+                <div id="hero-greeting" class="inline-block px-4 py-1.5 rounded-full bg-primary-50 text-primary-600 font-medium text-sm mb-2 border border-primary-100">
+                    <!-- Injected via JS -->
                 </div>
                 <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                    Saya John Doe, <br/>
-                    <span class="text-primary-600">Mobile Developer</span>
+                    <span id="hero-name"></span> <br/>
+                    <span id="hero-role" class="text-primary-600"></span>
                 </h1>
-                <p class="text-lg text-gray-600 max-w-2xl leading-relaxed">
-                    Spesialis dalam membangun aplikasi lintas platform yang performant dan indah menggunakan Flutter. Mengubah ide brilian Anda menjadi aplikasi mobile yang nyata.
+                <p id="hero-desc" class="text-lg text-gray-600 max-w-2xl leading-relaxed">
+                    <!-- Injected via JS -->
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 pt-4 w-full sm:w-auto">
-                    <a href="#projects" class="bg-primary-600 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-primary-700 transition-all shadow-lg shadow-primary-500/30 text-center flex justify-center items-center gap-2">
-                        Lihat Karya Saya
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    <a id="hero-btn-primary" href="#" class="bg-primary-600 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-primary-700 transition-all shadow-lg shadow-primary-500/30 text-center flex justify-center items-center gap-2">
+                        <!-- Injected via JS -->
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                     </a>
-                    <a href="#contact" class="bg-white text-gray-700 border-2 border-gray-200 px-8 py-3.5 rounded-full font-semibold hover:border-primary-600 hover:text-primary-600 transition-all text-center">
-                        Hubungi Saya
+                    <a id="hero-btn-secondary" href="#" class="bg-white text-gray-700 border-2 border-gray-200 px-8 py-3.5 rounded-full font-semibold hover:border-primary-600 hover:text-primary-600 transition-all text-center">
+                        <!-- Injected via JS -->
                     </a>
                 </div>
             </div>
@@ -133,10 +128,10 @@
                 </div>
                 <!-- Floating tech badges -->
                 <div class="absolute top-10 left-0 bg-white p-3 rounded-2xl shadow-lg animate-bounce z-20 hidden md:block" style="animation-duration: 3s;">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" class="w-10 h-10" alt="Flutter" />
+                    <img id="hero-icon-1" src="" class="w-10 h-10" alt="Tech Icon 1" />
                 </div>
                 <div class="absolute bottom-10 right-0 bg-white p-3 rounded-2xl shadow-lg animate-bounce z-20 hidden md:block" style="animation-duration: 4s; animation-delay: 1s;">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" class="w-10 h-10" alt="Dart" />
+                    <img id="hero-icon-2" src="" class="w-10 h-10" alt="Tech Icon 2" />
                 </div>
             </div>
         </section>
@@ -145,39 +140,23 @@
         <section id="about" class="py-20 bg-white border-t border-gray-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 fade-in">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Tentang <span class="text-primary-600">Saya</span></h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        <span id="about-title"></span> <span id="about-title-highlight" class="text-primary-600"></span>
+                    </h2>
                     <div class="w-20 h-1.5 bg-primary-600 mx-auto rounded-full"></div>
                 </div>
                 <div class="flex flex-col md:flex-row gap-12 items-center">
                     <div class="md:w-5/12 fade-in delay-100">
                         <div class="bg-primary-50 rounded-3xl p-8 border border-primary-100 relative">
                             <div class="absolute -top-4 -left-4 w-20 h-20 bg-primary-100 rounded-full blur-xl opacity-50 z-0"></div>
-                            <h3 class="text-2xl font-bold text-gray-900 mb-4 relative z-10">Kisah Perjalanan Saya</h3>
-                            <p class="text-gray-600 leading-relaxed mb-6 relative z-10">
-                                Berawal dari ketertarikan pada desain antarmuka, saya menemukan *passion* saya dalam pengembangan aplikasi mobile. Selama 3+ tahun terakhir, saya fokus mendalami ekosistem Flutter.
-                            </p>
-                            <p class="text-gray-600 leading-relaxed relative z-10">
-                                Saya percaya bahwa aplikasi tidak hanya harus fungsional, tetapi juga memberikan pengalaman yang menyenangkan bagi penggunanya (UI/UX yang mulus).
-                            </p>
+                            <h3 id="about-card-title" class="text-2xl font-bold text-gray-900 mb-4 relative z-10"></h3>
+                            <div id="about-paragraphs" class="relative z-10">
+                                <!-- Paragraphs injected via JS -->
+                            </div>
                         </div>
                     </div>
-                    <div class="md:w-7/12 grid grid-cols-2 gap-6 fade-in delay-200">
-                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
-                            <span class="text-4xl font-bold text-primary-600 mb-2">3+</span>
-                            <span class="text-gray-600 font-medium">Tahun Pengalaman</span>
-                        </div>
-                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
-                            <span class="text-4xl font-bold text-primary-600 mb-2">20+</span>
-                            <span class="text-gray-600 font-medium">Proyek Selesai</span>
-                        </div>
-                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
-                            <span class="text-4xl font-bold text-primary-600 mb-2">15</span>
-                            <span class="text-gray-600 font-medium">Klien Puas</span>
-                        </div>
-                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
-                            <span class="text-4xl font-bold text-primary-600 mb-2">2</span>
-                            <span class="text-gray-600 font-medium">Aplikasi di Store</span>
-                        </div>
+                    <div id="about-stats" class="md:w-7/12 grid grid-cols-2 gap-6 fade-in delay-200">
+                        <!-- Stats injected via JS -->
                     </div>
                 </div>
             </div>
@@ -187,76 +166,15 @@
         <section id="skills" class="py-20 bg-gray-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 fade-in">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Keahlian & <span class="text-primary-600">Teknologi</span></h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        <span id="skills-title"></span> <span id="skills-title-highlight" class="text-primary-600"></span>
+                    </h2>
                     <div class="w-20 h-1.5 bg-primary-600 mx-auto rounded-full"></div>
-                    <p class="mt-6 text-gray-600 max-w-2xl mx-auto text-lg">Alat dan teknologi yang saya gunakan setiap hari untuk membangun aplikasi berkualitas.</p>
+                    <p id="skills-subtitle" class="mt-6 text-gray-600 max-w-2xl mx-auto text-lg"></p>
                 </div>
 
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 lg:gap-8 fade-in delay-100">
-                    <!-- Skill 1 -->
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 border border-gray-100 group">
-                        <div class="w-16 h-16 mx-auto bg-blue-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary-100 transition-colors">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" class="w-10 h-10" alt="Flutter" />
-                        </div>
-                        <h4 class="font-semibold text-gray-900">Flutter</h4>
-                        <p class="text-sm text-gray-500 mt-1">Advanced</p>
-                    </div>
-                    <!-- Skill 2 -->
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 border border-gray-100 group">
-                        <div class="w-16 h-16 mx-auto bg-blue-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary-100 transition-colors">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" class="w-10 h-10" alt="Dart" />
-                        </div>
-                        <h4 class="font-semibold text-gray-900">Dart</h4>
-                        <p class="text-sm text-gray-500 mt-1">Advanced</p>
-                    </div>
-                    <!-- Skill 3 -->
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 border border-gray-100 group">
-                        <div class="w-16 h-16 mx-auto bg-orange-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-orange-100 transition-colors">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" class="w-10 h-10" alt="Firebase" />
-                        </div>
-                        <h4 class="font-semibold text-gray-900">Firebase</h4>
-                        <p class="text-sm text-gray-500 mt-1">Intermediate</p>
-                    </div>
-                    <!-- Skill 4 -->
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 border border-gray-100 group">
-                        <div class="w-16 h-16 mx-auto bg-blue-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" class="w-10 h-10" alt="SQLite" />
-                        </div>
-                        <h4 class="font-semibold text-gray-900">SQLite</h4>
-                        <p class="text-sm text-gray-500 mt-1">Intermediate</p>
-                    </div>
-                    <!-- Skill 5 -->
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 border border-gray-100 group">
-                        <div class="w-16 h-16 mx-auto bg-purple-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-purple-100 transition-colors">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" class="w-10 h-10" alt="Figma" />
-                        </div>
-                        <h4 class="font-semibold text-gray-900">Figma (UI/UX)</h4>
-                        <p class="text-sm text-gray-500 mt-1">Intermediate</p>
-                    </div>
-                    <!-- Skill 6 -->
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 border border-gray-100 group">
-                        <div class="w-16 h-16 mx-auto bg-gray-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-gray-200 transition-colors">
-                            <svg class="w-10 h-10 text-gray-700" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"/></svg>
-                        </div>
-                        <h4 class="font-semibold text-gray-900">Git / GitHub</h4>
-                        <p class="text-sm text-gray-500 mt-1">Advanced</p>
-                    </div>
-                     <!-- Skill 7 -->
-                     <div class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 border border-gray-100 group">
-                        <div class="w-16 h-16 mx-auto bg-green-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-green-100 transition-colors">
-                            <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                        </div>
-                        <h4 class="font-semibold text-gray-900">RESTful APIs</h4>
-                        <p class="text-sm text-gray-500 mt-1">Advanced</p>
-                    </div>
-                     <!-- Skill 8 -->
-                     <div class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 border border-gray-100 group">
-                        <div class="w-16 h-16 mx-auto bg-indigo-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-indigo-100 transition-colors">
-                            <svg class="w-10 h-10 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-                        </div>
-                        <h4 class="font-semibold text-gray-900">State Mgmt</h4>
-                        <p class="text-sm text-gray-500 mt-1">(Provider, Bloc)</p>
-                    </div>
+                <div id="skills-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 lg:gap-8 fade-in delay-100">
+                    <!-- Skills injected via JS -->
                 </div>
             </div>
         </section>
@@ -265,76 +183,15 @@
         <section id="projects" class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 fade-in">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Karya & <span class="text-primary-600">Portofolio</span></h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        <span id="projects-title"></span> <span id="projects-title-highlight" class="text-primary-600"></span>
+                    </h2>
                     <div class="w-20 h-1.5 bg-primary-600 mx-auto rounded-full"></div>
-                    <p class="mt-6 text-gray-600 max-w-2xl mx-auto text-lg">Beberapa aplikasi mobile yang telah saya kembangkan.</p>
+                    <p id="projects-subtitle" class="mt-6 text-gray-600 max-w-2xl mx-auto text-lg"></p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in delay-100">
-                    <!-- Project 1 -->
-                    <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 group">
-                        <div class="h-60 bg-gray-100 relative overflow-hidden flex items-center justify-center">
-                            <!-- Placeholder Image / Background -->
-                            <div class="absolute inset-0 bg-gradient-to-br from-blue-100 to-primary-100 opacity-50"></div>
-                            <svg class="w-20 h-20 text-primary-300 relative z-10 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
-                            <!-- Overlay -->
-                            <div class="absolute inset-0 bg-primary-600/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm z-20">
-                                <a href="#" class="px-6 py-2 bg-white text-primary-600 rounded-full font-semibold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Detail Projek</a>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <div class="flex gap-2 mb-3">
-                                <span class="px-3 py-1 bg-primary-50 text-primary-600 text-xs font-semibold rounded-full">Flutter</span>
-                                <span class="px-3 py-1 bg-orange-50 text-orange-600 text-xs font-semibold rounded-full">Firebase</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">E-Commerce App</h3>
-                            <p class="text-gray-600 text-sm line-clamp-3">
-                                Aplikasi belanja online lengkap dengan fitur keranjang, pembayaran dengan gateway pihak ketiga, dan pelacakan pesanan real-time.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Project 2 -->
-                    <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 group">
-                        <div class="h-60 bg-gray-100 relative overflow-hidden flex items-center justify-center">
-                            <div class="absolute inset-0 bg-gradient-to-br from-green-100 to-teal-100 opacity-50"></div>
-                            <svg class="w-20 h-20 text-teal-300 relative z-10 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                            <div class="absolute inset-0 bg-teal-600/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm z-20">
-                                <a href="#" class="px-6 py-2 bg-white text-teal-600 rounded-full font-semibold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Detail Projek</a>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <div class="flex gap-2 mb-3">
-                                <span class="px-3 py-1 bg-primary-50 text-primary-600 text-xs font-semibold rounded-full">Flutter</span>
-                                <span class="px-3 py-1 bg-purple-50 text-purple-600 text-xs font-semibold rounded-full">REST API</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Finance Tracker</h3>
-                            <p class="text-gray-600 text-sm line-clamp-3">
-                                Aplikasi manajemen keuangan pribadi dengan grafik interaktif untuk melacak pengeluaran dan pemasukan bulanan pengguna.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 group">
-                        <div class="h-60 bg-gray-100 relative overflow-hidden flex items-center justify-center">
-                            <div class="absolute inset-0 bg-gradient-to-br from-indigo-100 to-purple-100 opacity-50"></div>
-                            <svg class="w-20 h-20 text-indigo-300 relative z-10 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                            <div class="absolute inset-0 bg-indigo-600/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm z-20">
-                                <a href="#" class="px-6 py-2 bg-white text-indigo-600 rounded-full font-semibold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Detail Projek</a>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <div class="flex gap-2 mb-3">
-                                <span class="px-3 py-1 bg-primary-50 text-primary-600 text-xs font-semibold rounded-full">Flutter</span>
-                                <span class="px-3 py-1 bg-blue-50 text-blue-600 text-xs font-semibold rounded-full">SQLite</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Smart Notes</h3>
-                            <p class="text-gray-600 text-sm line-clamp-3">
-                                Aplikasi pencatatan modern dengan kemampuan sinkronisasi offline-first menggunakan SQLite, mendukung markdown dan kategorisasi.
-                            </p>
-                        </div>
-                    </div>
+                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in delay-100">
+                    <!-- Projects injected via JS -->
                 </div>
             </div>
         </section>
@@ -346,19 +203,17 @@
             <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-white opacity-5"></div>
 
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center fade-in">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Punya Proyek Menarik?</h2>
-                <p class="text-primary-100 text-lg mb-10 max-w-2xl mx-auto">
-                    Saya selalu terbuka untuk mendiskusikan pekerjaan pengembangan produk, ide proyek, atau peluang kerja sama lainnya. Mari kita ciptakan sesuatu yang luar biasa bersama!
-                </p>
+                <h2 id="contact-title" class="text-3xl md:text-4xl font-bold text-white mb-6"></h2>
+                <p id="contact-subtitle" class="text-primary-100 text-lg mb-10 max-w-2xl mx-auto"></p>
 
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="mailto:hello@johndoe.com" class="bg-white text-primary-600 px-8 py-4 rounded-full font-bold hover:bg-gray-50 transition-colors shadow-lg flex items-center justify-center gap-2">
+                    <a id="contact-email" href="#" class="bg-white text-primary-600 px-8 py-4 rounded-full font-bold hover:bg-gray-50 transition-colors shadow-lg flex items-center justify-center gap-2">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                        Kirim Email
+                        <span id="contact-email-text"></span>
                     </a>
-                    <a href="https://linkedin.com" target="_blank" class="bg-transparent text-white border-2 border-white/30 px-8 py-4 rounded-full font-bold hover:bg-white/10 hover:border-white transition-colors flex items-center justify-center gap-2">
+                    <a id="contact-linkedin" href="#" target="_blank" class="bg-transparent text-white border-2 border-white/30 px-8 py-4 rounded-full font-bold hover:bg-white/10 hover:border-white transition-colors flex items-center justify-center gap-2">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                        LinkedIn
+                        <span id="contact-linkedin-text"></span>
                     </a>
                 </div>
             </div>
@@ -369,25 +224,196 @@
     <!-- Footer -->
     <footer class="bg-gray-900 py-8 border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="text-2xl font-bold text-white tracking-tight">JohnDoe.</div>
+            <div id="footer-logo" class="text-2xl font-bold text-white tracking-tight"></div>
             <p class="text-gray-400 text-sm text-center md:text-left">
-                &copy; <span id="year"></span> John Doe. Dibuat dengan 💙 & Tailwind CSS.
+                &copy; <span id="year"></span> <span id="footer-text"></span>
             </p>
-            <div class="flex space-x-4">
-                <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                </a>
+            <div id="footer-socials" class="flex space-x-4">
+                <!-- Social links injected via JS -->
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script>
-        // Set current year in footer
-        document.getElementById('year').textContent = new Date().getFullYear();
+        // ==========================================
+        // Inject Data from data.js
+        // ==========================================
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof portfolioData === 'undefined') {
+                console.error("Data portfolioData tidak ditemukan! Pastikan file data.js diload dengan benar.");
+                return;
+            }
+
+            // Navbar
+            document.getElementById('nav-logo').textContent = portfolioData.navbar.logo;
+            const desktopLinksContainer = document.getElementById('nav-desktop-links');
+            const mobileLinksContainer = document.getElementById('nav-mobile-links');
+
+            portfolioData.navbar.links.forEach(link => {
+                // Desktop link
+                const dLink = document.createElement('a');
+                dLink.href = link.href;
+                dLink.className = "text-gray-600 hover:text-primary-600 font-medium transition-colors";
+                dLink.textContent = link.title;
+                desktopLinksContainer.appendChild(dLink);
+
+                // Mobile link
+                const mLink = document.createElement('a');
+                mLink.href = link.href;
+                mLink.className = "block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 rounded-md";
+                mLink.textContent = link.title;
+                mobileLinksContainer.appendChild(mLink);
+            });
+
+            // Navbar CTA
+            const ctaDesktop = document.createElement('a');
+            ctaDesktop.href = portfolioData.navbar.cta.href;
+            ctaDesktop.className = "bg-primary-600 text-white px-5 py-2 rounded-full font-medium hover:bg-primary-700 transition-colors shadow-md shadow-primary-500/30";
+            ctaDesktop.textContent = portfolioData.navbar.cta.title;
+            desktopLinksContainer.appendChild(ctaDesktop);
+
+            const ctaMobile = document.createElement('a');
+            ctaMobile.href = portfolioData.navbar.cta.href;
+            ctaMobile.className = "block px-3 py-2 text-base font-medium text-primary-600 hover:bg-primary-50 rounded-md mt-4 border border-primary-100 text-center";
+            ctaMobile.textContent = portfolioData.navbar.cta.title;
+            mobileLinksContainer.appendChild(ctaMobile);
+
+            // Hero
+            document.getElementById('hero-greeting').textContent = portfolioData.hero.greeting;
+            document.getElementById('hero-name').textContent = portfolioData.hero.name;
+            document.getElementById('hero-role').textContent = portfolioData.hero.role;
+            document.getElementById('hero-desc').textContent = portfolioData.hero.description;
+
+            const btnPrimary = document.getElementById('hero-btn-primary');
+            btnPrimary.href = portfolioData.hero.primaryButton.href;
+            btnPrimary.childNodes[0].nodeValue = portfolioData.hero.primaryButton.text + " ";
+
+            const btnSecondary = document.getElementById('hero-btn-secondary');
+            btnSecondary.href = portfolioData.hero.secondaryButton.href;
+            btnSecondary.textContent = portfolioData.hero.secondaryButton.text;
+
+            if(portfolioData.hero.techIcons.length >= 2) {
+                document.getElementById('hero-icon-1').src = portfolioData.hero.techIcons[0];
+                document.getElementById('hero-icon-2').src = portfolioData.hero.techIcons[1];
+            }
+
+            // About
+            document.getElementById('about-title').textContent = portfolioData.about.title;
+            document.getElementById('about-title-highlight').textContent = portfolioData.about.titleHighlight;
+            document.getElementById('about-card-title').textContent = portfolioData.about.cardTitle;
+
+            const aboutParagraphsContainer = document.getElementById('about-paragraphs');
+            portfolioData.about.paragraphs.forEach(text => {
+                const p = document.createElement('p');
+                p.className = "text-gray-600 leading-relaxed mb-4";
+                p.innerHTML = text.replace(/\*(.*?)\*/g, '<em>$1</em>'); // Simple markdown for italic
+                aboutParagraphsContainer.appendChild(p);
+            });
+
+            const statsContainer = document.getElementById('about-stats');
+            portfolioData.about.stats.forEach(stat => {
+                const div = document.createElement('div');
+                div.className = "bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow";
+                div.innerHTML = `
+                    <span class="text-4xl font-bold text-primary-600 mb-2">${stat.number}</span>
+                    <span class="text-gray-600 font-medium">${stat.text}</span>
+                `;
+                statsContainer.appendChild(div);
+            });
+
+            // Skills
+            document.getElementById('skills-title').textContent = portfolioData.skills.title;
+            document.getElementById('skills-title-highlight').textContent = portfolioData.skills.titleHighlight;
+            document.getElementById('skills-subtitle').textContent = portfolioData.skills.subtitle;
+
+            const skillsGrid = document.getElementById('skills-grid');
+            portfolioData.skills.items.forEach(skill => {
+                const div = document.createElement('div');
+                div.className = "bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 border border-gray-100 group";
+                div.innerHTML = `
+                    <div class="w-16 h-16 mx-auto ${skill.bgColor} rounded-xl flex items-center justify-center mb-4 ${skill.hoverBgColor} transition-colors">
+                        ${skill.icon}
+                    </div>
+                    <h4 class="font-semibold text-gray-900">${skill.name}</h4>
+                    <p class="text-sm text-gray-500 mt-1">${skill.level}</p>
+                `;
+                skillsGrid.appendChild(div);
+            });
+
+            // Projects
+            document.getElementById('projects-title').textContent = portfolioData.projects.title;
+            document.getElementById('projects-title-highlight').textContent = portfolioData.projects.titleHighlight;
+            document.getElementById('projects-subtitle').textContent = portfolioData.projects.subtitle;
+
+            const projectsGrid = document.getElementById('projects-grid');
+            portfolioData.projects.items.forEach(project => {
+                const div = document.createElement('div');
+                div.className = "bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 group";
+
+                let tagsHtml = project.tags.map(tag =>
+                    `<span class="px-3 py-1 ${tag.colorClass} text-xs font-semibold rounded-full">${tag.name}</span>`
+                ).join('');
+
+                div.innerHTML = `
+                    <div class="h-60 bg-gray-100 relative overflow-hidden flex items-center justify-center">
+                        <div class="absolute inset-0 bg-gradient-to-br ${project.themeColors.gradientFrom} ${project.themeColors.gradientTo} opacity-50"></div>
+                        ${project.icon}
+                        <div class="absolute inset-0 ${project.themeColors.hoverOverlay} opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm z-20">
+                            <a href="${project.link}" class="px-6 py-2 bg-white ${project.themeColors.textColor} rounded-full font-semibold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Detail Projek</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            ${tagsHtml}
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">${project.title}</h3>
+                        <p class="text-gray-600 text-sm line-clamp-3">${project.description}</p>
+                    </div>
+                `;
+                projectsGrid.appendChild(div);
+            });
+
+            // Contact
+            document.getElementById('contact-title').textContent = portfolioData.contact.title;
+            document.getElementById('contact-subtitle').textContent = portfolioData.contact.subtitle;
+
+            const contactEmail = document.getElementById('contact-email');
+            contactEmail.href = `mailto:${portfolioData.contact.email.address}`;
+            document.getElementById('contact-email-text').textContent = portfolioData.contact.email.text;
+
+            const contactLinkedin = document.getElementById('contact-linkedin');
+            contactLinkedin.href = portfolioData.contact.linkedin.url;
+            document.getElementById('contact-linkedin-text').textContent = portfolioData.contact.linkedin.text;
+
+            // Footer
+            document.getElementById('footer-logo').textContent = portfolioData.navbar.logo; // Reuse logo
+            document.getElementById('footer-text').textContent = portfolioData.footer.text;
+
+            const footerSocials = document.getElementById('footer-socials');
+            portfolioData.footer.socials.forEach(social => {
+                const a = document.createElement('a');
+                a.href = social.url;
+                a.className = "text-gray-400 hover:text-white transition-colors";
+                a.innerHTML = social.icon;
+                footerSocials.appendChild(a);
+            });
+
+            // Re-initialize intersection observer for dynamically added fade-in elements (if any new ones were added with fade-in class inside JS)
+            // But since our wrappers already have fade-in, we just need to make sure the observer runs after DOM is painted.
+            initObserver();
+
+            // Close mobile menu when a link is clicked (Now done after injection)
+            const mobileLinks = document.getElementById('mobile-menu').querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                });
+            });
+
+            // Set current year in footer
+            document.getElementById('year').textContent = new Date().getFullYear();
+        });
 
         // Mobile menu toggle
         const btn = document.getElementById('mobile-menu-btn');
@@ -395,14 +421,6 @@
 
         btn.addEventListener('click', () => {
             menu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu when a link is clicked
-        const mobileLinks = menu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
-            });
         });
 
         // Navbar scroll effect
@@ -418,24 +436,26 @@
         });
 
         // Intersection Observer for Fade-In Animation
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.15
-        };
+        function initObserver() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
 
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
             });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
+        }
     </script>
 </body>
 </html>
