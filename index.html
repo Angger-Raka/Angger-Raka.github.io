@@ -1,154 +1,441 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pilih Jenis Pesanan</title>
+    <title>Portofolio - Mobile Developer</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Memuat library SheetJS untuk membaca file Excel -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
-        .notification { transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; }
+        /* Custom Styles for smooth animations */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafafa;
+        }
+
+        /* Fade In Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Delay utilities for staggered animations */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
     </style>
 </head>
-<body class="bg-blue-50 flex items-center justify-center min-h-screen p-4">
+<body class="text-gray-800 antialiased selection:bg-primary-500 selection:text-white flex flex-col min-h-screen">
 
-    <div class="w-full max-w-4xl mx-auto">
-        <div class="text-center mb-10">
-            <h1 class="text-3xl sm:text-4xl font-bold text-gray-800">Pilih Jenis Pesanan Anda</h1>
-            <p class="text-gray-600 mt-2">Kami menyediakan dua cara mudah untuk melakukan pemesanan.</p>
+    <!-- Navbar -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-100 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="text-2xl font-bold text-primary-600 tracking-tight">JohnDoe.</a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Beranda</a>
+                    <a href="#about" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Tentang</a>
+                    <a href="#skills" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Keahlian</a>
+                    <a href="#projects" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Portofolio</a>
+                    <a href="#contact" class="bg-primary-600 text-white px-5 py-2 rounded-full font-medium hover:bg-primary-700 transition-colors shadow-md shadow-primary-500/30">Hubungi Saya</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-primary-600 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Kartu 1: Pesanan Kustom -->
-            <div class="card bg-white p-8 rounded-2xl shadow-lg text-center flex flex-col items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-blue-600 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-                <h2 class="text-2xl font-bold text-gray-800 mb-2">Pesanan Kustom</h2>
-                <p class="text-gray-600 mb-6 flex-grow">Isi formulir online untuk satu jenis pesanan dengan spesifikasi yang detail.</p>
-                <a href="form-tunggal.html" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
-                    Buat Pesanan
+        <!-- Mobile Menu Panel (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 shadow-lg absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col">
+                <a href="#home" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 rounded-md">Beranda</a>
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 rounded-md">Tentang</a>
+                <a href="#skills" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 rounded-md">Keahlian</a>
+                <a href="#projects" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 rounded-md">Portofolio</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-primary-600 hover:bg-primary-50 rounded-md mt-4 border border-primary-100 text-center">Hubungi Saya</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+
+        <!-- Hero Section -->
+        <section id="home" class="pt-32 pb-20 lg:pt-48 lg:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
+            <div class="lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 fade-in">
+                <div class="inline-block px-4 py-1.5 rounded-full bg-primary-50 text-primary-600 font-medium text-sm mb-2 border border-primary-100">
+                    👋 Halo, Selamat Datang!
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                    Saya John Doe, <br/>
+                    <span class="text-primary-600">Mobile Developer</span>
+                </h1>
+                <p class="text-lg text-gray-600 max-w-2xl leading-relaxed">
+                    Spesialis dalam membangun aplikasi lintas platform yang performant dan indah menggunakan Flutter. Mengubah ide brilian Anda menjadi aplikasi mobile yang nyata.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 pt-4 w-full sm:w-auto">
+                    <a href="#projects" class="bg-primary-600 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-primary-700 transition-all shadow-lg shadow-primary-500/30 text-center flex justify-center items-center gap-2">
+                        Lihat Karya Saya
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                    <a href="#contact" class="bg-white text-gray-700 border-2 border-gray-200 px-8 py-3.5 rounded-full font-semibold hover:border-primary-600 hover:text-primary-600 transition-all text-center">
+                        Hubungi Saya
+                    </a>
+                </div>
+            </div>
+            <div class="lg:w-1/2 relative flex justify-center fade-in delay-200">
+                <!-- Decorative background elements -->
+                <div class="absolute inset-0 bg-primary-100 rounded-full blur-3xl opacity-30 transform scale-110 translate-y-10"></div>
+                <!-- Profile Image Placeholder -->
+                <div class="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-8 border-white shadow-2xl z-10 bg-gray-100 flex items-center justify-center">
+                    <svg class="w-1/2 h-1/2 text-gray-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                </div>
+                <!-- Floating tech badges -->
+                <div class="absolute top-10 left-0 bg-white p-3 rounded-2xl shadow-lg animate-bounce z-20 hidden md:block" style="animation-duration: 3s;">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" class="w-10 h-10" alt="Flutter" />
+                </div>
+                <div class="absolute bottom-10 right-0 bg-white p-3 rounded-2xl shadow-lg animate-bounce z-20 hidden md:block" style="animation-duration: 4s; animation-delay: 1s;">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" class="w-10 h-10" alt="Dart" />
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-white border-t border-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Tentang <span class="text-primary-600">Saya</span></h2>
+                    <div class="w-20 h-1.5 bg-primary-600 mx-auto rounded-full"></div>
+                </div>
+                <div class="flex flex-col md:flex-row gap-12 items-center">
+                    <div class="md:w-5/12 fade-in delay-100">
+                        <div class="bg-primary-50 rounded-3xl p-8 border border-primary-100 relative">
+                            <div class="absolute -top-4 -left-4 w-20 h-20 bg-primary-100 rounded-full blur-xl opacity-50 z-0"></div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4 relative z-10">Kisah Perjalanan Saya</h3>
+                            <p class="text-gray-600 leading-relaxed mb-6 relative z-10">
+                                Berawal dari ketertarikan pada desain antarmuka, saya menemukan *passion* saya dalam pengembangan aplikasi mobile. Selama 3+ tahun terakhir, saya fokus mendalami ekosistem Flutter.
+                            </p>
+                            <p class="text-gray-600 leading-relaxed relative z-10">
+                                Saya percaya bahwa aplikasi tidak hanya harus fungsional, tetapi juga memberikan pengalaman yang menyenangkan bagi penggunanya (UI/UX yang mulus).
+                            </p>
+                        </div>
+                    </div>
+                    <div class="md:w-7/12 grid grid-cols-2 gap-6 fade-in delay-200">
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
+                            <span class="text-4xl font-bold text-primary-600 mb-2">3+</span>
+                            <span class="text-gray-600 font-medium">Tahun Pengalaman</span>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
+                            <span class="text-4xl font-bold text-primary-600 mb-2">20+</span>
+                            <span class="text-gray-600 font-medium">Proyek Selesai</span>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
+                            <span class="text-4xl font-bold text-primary-600 mb-2">15</span>
+                            <span class="text-gray-600 font-medium">Klien Puas</span>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
+                            <span class="text-4xl font-bold text-primary-600 mb-2">2</span>
+                            <span class="text-gray-600 font-medium">Aplikasi di Store</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Keahlian & <span class="text-primary-600">Teknologi</span></h2>
+                    <div class="w-20 h-1.5 bg-primary-600 mx-auto rounded-full"></div>
+                    <p class="mt-6 text-gray-600 max-w-2xl mx-auto text-lg">Alat dan teknologi yang saya gunakan setiap hari untuk membangun aplikasi berkualitas.</p>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 lg:gap-8 fade-in delay-100">
+                    <!-- Skill 1 -->
+                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 border border-gray-100 group">
+                        <div class="w-16 h-16 mx-auto bg-blue-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary-100 transition-colors">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" class="w-10 h-10" alt="Flutter" />
+                        </div>
+                        <h4 class="font-semibold text-gray-900">Flutter</h4>
+                        <p class="text-sm text-gray-500 mt-1">Advanced</p>
+                    </div>
+                    <!-- Skill 2 -->
+                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 border border-gray-100 group">
+                        <div class="w-16 h-16 mx-auto bg-blue-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary-100 transition-colors">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" class="w-10 h-10" alt="Dart" />
+                        </div>
+                        <h4 class="font-semibold text-gray-900">Dart</h4>
+                        <p class="text-sm text-gray-500 mt-1">Advanced</p>
+                    </div>
+                    <!-- Skill 3 -->
+                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 border border-gray-100 group">
+                        <div class="w-16 h-16 mx-auto bg-orange-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-orange-100 transition-colors">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" class="w-10 h-10" alt="Firebase" />
+                        </div>
+                        <h4 class="font-semibold text-gray-900">Firebase</h4>
+                        <p class="text-sm text-gray-500 mt-1">Intermediate</p>
+                    </div>
+                    <!-- Skill 4 -->
+                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 border border-gray-100 group">
+                        <div class="w-16 h-16 mx-auto bg-blue-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" class="w-10 h-10" alt="SQLite" />
+                        </div>
+                        <h4 class="font-semibold text-gray-900">SQLite</h4>
+                        <p class="text-sm text-gray-500 mt-1">Intermediate</p>
+                    </div>
+                    <!-- Skill 5 -->
+                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 border border-gray-100 group">
+                        <div class="w-16 h-16 mx-auto bg-purple-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-purple-100 transition-colors">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" class="w-10 h-10" alt="Figma" />
+                        </div>
+                        <h4 class="font-semibold text-gray-900">Figma (UI/UX)</h4>
+                        <p class="text-sm text-gray-500 mt-1">Intermediate</p>
+                    </div>
+                    <!-- Skill 6 -->
+                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 border border-gray-100 group">
+                        <div class="w-16 h-16 mx-auto bg-gray-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-gray-200 transition-colors">
+                            <svg class="w-10 h-10 text-gray-700" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                        </div>
+                        <h4 class="font-semibold text-gray-900">Git / GitHub</h4>
+                        <p class="text-sm text-gray-500 mt-1">Advanced</p>
+                    </div>
+                     <!-- Skill 7 -->
+                     <div class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 border border-gray-100 group">
+                        <div class="w-16 h-16 mx-auto bg-green-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-green-100 transition-colors">
+                            <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        </div>
+                        <h4 class="font-semibold text-gray-900">RESTful APIs</h4>
+                        <p class="text-sm text-gray-500 mt-1">Advanced</p>
+                    </div>
+                     <!-- Skill 8 -->
+                     <div class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 border border-gray-100 group">
+                        <div class="w-16 h-16 mx-auto bg-indigo-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-indigo-100 transition-colors">
+                            <svg class="w-10 h-10 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                        </div>
+                        <h4 class="font-semibold text-gray-900">State Mgmt</h4>
+                        <p class="text-sm text-gray-500 mt-1">(Provider, Bloc)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Karya & <span class="text-primary-600">Portofolio</span></h2>
+                    <div class="w-20 h-1.5 bg-primary-600 mx-auto rounded-full"></div>
+                    <p class="mt-6 text-gray-600 max-w-2xl mx-auto text-lg">Beberapa aplikasi mobile yang telah saya kembangkan.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in delay-100">
+                    <!-- Project 1 -->
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 group">
+                        <div class="h-60 bg-gray-100 relative overflow-hidden flex items-center justify-center">
+                            <!-- Placeholder Image / Background -->
+                            <div class="absolute inset-0 bg-gradient-to-br from-blue-100 to-primary-100 opacity-50"></div>
+                            <svg class="w-20 h-20 text-primary-300 relative z-10 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                            <!-- Overlay -->
+                            <div class="absolute inset-0 bg-primary-600/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm z-20">
+                                <a href="#" class="px-6 py-2 bg-white text-primary-600 rounded-full font-semibold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Detail Projek</a>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex gap-2 mb-3">
+                                <span class="px-3 py-1 bg-primary-50 text-primary-600 text-xs font-semibold rounded-full">Flutter</span>
+                                <span class="px-3 py-1 bg-orange-50 text-orange-600 text-xs font-semibold rounded-full">Firebase</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">E-Commerce App</h3>
+                            <p class="text-gray-600 text-sm line-clamp-3">
+                                Aplikasi belanja online lengkap dengan fitur keranjang, pembayaran dengan gateway pihak ketiga, dan pelacakan pesanan real-time.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 group">
+                        <div class="h-60 bg-gray-100 relative overflow-hidden flex items-center justify-center">
+                            <div class="absolute inset-0 bg-gradient-to-br from-green-100 to-teal-100 opacity-50"></div>
+                            <svg class="w-20 h-20 text-teal-300 relative z-10 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                            <div class="absolute inset-0 bg-teal-600/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm z-20">
+                                <a href="#" class="px-6 py-2 bg-white text-teal-600 rounded-full font-semibold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Detail Projek</a>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex gap-2 mb-3">
+                                <span class="px-3 py-1 bg-primary-50 text-primary-600 text-xs font-semibold rounded-full">Flutter</span>
+                                <span class="px-3 py-1 bg-purple-50 text-purple-600 text-xs font-semibold rounded-full">REST API</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Finance Tracker</h3>
+                            <p class="text-gray-600 text-sm line-clamp-3">
+                                Aplikasi manajemen keuangan pribadi dengan grafik interaktif untuk melacak pengeluaran dan pemasukan bulanan pengguna.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 group">
+                        <div class="h-60 bg-gray-100 relative overflow-hidden flex items-center justify-center">
+                            <div class="absolute inset-0 bg-gradient-to-br from-indigo-100 to-purple-100 opacity-50"></div>
+                            <svg class="w-20 h-20 text-indigo-300 relative z-10 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                            <div class="absolute inset-0 bg-indigo-600/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm z-20">
+                                <a href="#" class="px-6 py-2 bg-white text-indigo-600 rounded-full font-semibold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Detail Projek</a>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex gap-2 mb-3">
+                                <span class="px-3 py-1 bg-primary-50 text-primary-600 text-xs font-semibold rounded-full">Flutter</span>
+                                <span class="px-3 py-1 bg-blue-50 text-blue-600 text-xs font-semibold rounded-full">SQLite</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Smart Notes</h3>
+                            <p class="text-gray-600 text-sm line-clamp-3">
+                                Aplikasi pencatatan modern dengan kemampuan sinkronisasi offline-first menggunakan SQLite, mendukung markdown dan kategorisasi.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-primary-600 relative overflow-hidden">
+            <!-- Background Patterns -->
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-white opacity-10"></div>
+            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-white opacity-5"></div>
+
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Punya Proyek Menarik?</h2>
+                <p class="text-primary-100 text-lg mb-10 max-w-2xl mx-auto">
+                    Saya selalu terbuka untuk mendiskusikan pekerjaan pengembangan produk, ide proyek, atau peluang kerja sama lainnya. Mari kita ciptakan sesuatu yang luar biasa bersama!
+                </p>
+
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="mailto:hello@johndoe.com" class="bg-white text-primary-600 px-8 py-4 rounded-full font-bold hover:bg-gray-50 transition-colors shadow-lg flex items-center justify-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        Kirim Email
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="bg-transparent text-white border-2 border-white/30 px-8 py-4 rounded-full font-bold hover:bg-white/10 hover:border-white transition-colors flex items-center justify-center gap-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-2xl font-bold text-white tracking-tight">JohnDoe.</div>
+            <p class="text-gray-400 text-sm text-center md:text-left">
+                &copy; <span id="year"></span> John Doe. Dibuat dengan 💙 & Tailwind CSS.
+            </p>
+            <div class="flex space-x-4">
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                 </a>
             </div>
-
-            <!-- Kartu 2: Import Pesanan Massal -->
-            <div class="card bg-white p-8 rounded-2xl shadow-lg flex flex-col">
-                <div class="text-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-blue-600 mb-4 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Import Pesanan Massal</h2>
-                    <p class="text-gray-600 mb-6">Unduh template, isi, dan unggah file Excel untuk beberapa pesanan sekaligus.</p>
-                </div>
-                <div class="space-y-4 mt-auto">
-                    <button id="download-template" class="w-full bg-gray-200 text-gray-800 font-bold py-3 px-6 rounded-lg hover:bg-gray-300">1. Unduh Template</button>
-                    <input type="file" id="excel-file" class="hidden" accept=".xlsx, .xls, .csv">
-                    <label for="excel-file" id="upload-label" class="w-full block bg-gray-200 text-gray-800 font-bold py-3 px-6 rounded-lg hover:bg-gray-300 text-center cursor-pointer">2. Pilih File Excel</label>
-                    <button id="submit-bulk" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed" disabled>3. Unggah & Kirim</button>
-                </div>
-            </div>
         </div>
-    </div>
-    
-    <!-- Pesan Notifikasi (Tersembunyi) -->
-    <div id="notification" class="notification fixed top-5 right-5 py-3 px-6 rounded-lg shadow-xl opacity-0 transform translate-y-[-20px]"></div>
+    </footer>
 
+    <!-- Scripts -->
     <script>
-        // ====================================================================================
-        // GANTI URL DI BAWAH INI DENGAN URL HASIL DEPLOYMENT APPS SCRIPT ANDA
-        // ====================================================================================
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxL6_9a1yVuUHe7uasxv8mKu8-7_goNbEPrITQDK2CR6aB0L5lwTT_p1mIBoUxN3wWn/exec';
-        // ====================================================================================
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-        const downloadBtn = document.getElementById('download-template');
-        const fileInput = document.getElementById('excel-file');
-        const uploadLabel = document.getElementById('upload-label');
-        const submitBulkBtn = document.getElementById('submit-bulk');
-        const notification = document.getElementById('notification');
-        let workbookData = null;
+        // Mobile menu toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
 
-        // 1. Fungsi untuk mengunduh template
-        downloadBtn.addEventListener('click', () => {
-            const headers = [
-                "Nama Pemesan", "Nomor Telepon", "Judul Pesanan", "Ukuran Jadi", "Jumlah Halaman", 
-                "Jenis Kertas Isi", "Jenis Kertas Sampul", "Finishing Sampul", "Jilid", 
-                "Jumlah Cetak", "Catatan Tambahan"
-            ];
-            const worksheet = XLSX.utils.aoa_to_sheet([headers]);
-            const workbook = XLSX.utils.book_new();
-            XLSX.utils.book_append_sheet(workbook, worksheet, "Template Pesanan");
-            XLSX.writeFile(workbook, "Template_Pesanan_Massal.xlsx");
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
         });
 
-        // 2. Fungsi untuk membaca file yang dipilih
-        fileInput.addEventListener('change', (event) => {
-            const file = event.target.files[0];
-            if (file) {
-                uploadLabel.textContent = file.name;
-                uploadLabel.classList.add('bg-green-200', 'text-green-800');
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const data = new Uint8Array(e.target.result);
-                    const workbook = XLSX.read(data, { type: 'array' });
-                    const firstSheetName = workbook.SheetNames[0];
-                    const worksheet = workbook.Sheets[firstSheetName];
-                    workbookData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
-                    submitBulkBtn.disabled = false;
-                };
-                reader.readAsArrayBuffer(file);
-            }
-        });
-
-        // 3. Fungsi untuk mengirim data massal
-        submitBulkBtn.addEventListener('click', () => {
-            if (!workbookData || workbookData.length < 2) {
-                showNotification('File kosong atau hanya berisi header.', 'error');
-                return;
-            }
-
-            submitBulkBtn.disabled = true;
-            submitBulkBtn.textContent = 'Mengirim...';
-
-            // Mengubah array menjadi format yang lebih mudah diolah script
-            const headers = workbookData[0].map(h => h.toLowerCase().replace(/ /g, '-'));
-            const dataToSend = workbookData.slice(1).map(row => {
-                let obj = {};
-                headers.forEach((header, index) => {
-                    obj[header] = row[index] || "";
-                });
-                return obj;
-            });
-
-            fetch(`${scriptURL}?action=uploadBulk`, {
-                method: 'POST',
-                mode: 'no-cors', // Diperlukan karena Apps Script redirect
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(dataToSend)
-            })
-            .then(() => {
-                showNotification(`Berhasil mengirim ${dataToSend.length} pesanan!`, 'success');
-                fileInput.value = ''; // Reset input file
-                uploadLabel.textContent = '2. Pilih File Excel';
-                uploadLabel.classList.remove('bg-green-200', 'text-green-800');
-                workbookData = null;
-            })
-            .catch(error => {
-                console.error('Error!', error.message);
-                showNotification('Gagal mengirim pesanan. Coba lagi.', 'error');
-            })
-            .finally(() => {
-                submitBulkBtn.disabled = true;
-                submitBulkBtn.textContent = '3. Unggah & Kirim';
+        // Close mobile menu when a link is clicked
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
             });
         });
 
-        function showNotification(message, type) {
-            notification.textContent = message;
-            notification.className = `notification fixed top-5 right-5 text-white py-3 px-6 rounded-lg shadow-xl opacity-0 transform translate-y-[-20px] ${type === 'success' ? 'bg-green-500' : 'bg-red-500'}`;
-            setTimeout(() => { notification.style.opacity = '1'; notification.style.transform = 'translateY(0)'; }, 100);
-            setTimeout(() => { notification.style.opacity = '0'; notification.style.transform = 'translateY(-20px)'; }, 5000);
-        }
+        // Navbar scroll effect
+        const navbar = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.remove('shadow-sm', 'border-b', 'border-gray-100');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.add('shadow-sm', 'border-b', 'border-gray-100');
+            }
+        });
+
+        // Intersection Observer for Fade-In Animation
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
     </script>
 </body>
 </html>
