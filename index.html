@@ -45,6 +45,7 @@ title: Angger Raka Sanjaya, mobile developer di Yogyakarta
       <li class="index-row{% if p.featured %} index-row--lead{% endif %}">
         <h3 class="index-title"><a href="{{ p.url | remove_first: '/' | prepend: root }}">{{ p.title }}</a></h3>
         <p class="index-summary">{{ p.summary }}</p>
+        <p class="index-stack">{{ p.stack | slice: 0, 2 | join: ", " }}</p>
         <p class="index-year measured">{{ p.year }}</p>
         <p class="index-status">{% if p.status %}<span class="chip{% if p.status_now %} chip--now{% endif %}">{{ p.status }}</span>{% endif %}</p>
       </li>
@@ -54,15 +55,19 @@ title: Angger Raka Sanjaya, mobile developer di Yogyakarta
 </section>
 
 <section class="section section--far" id="pengalaman" aria-labelledby="pengalaman-judul">
-  <div class="container side-head">
-    <h2 id="pengalaman-judul">Pengalaman kerja</h2>
+  <div class="container">
+    <h2 id="pengalaman-judul">{{ profil.judul.riwayat }}</h2>
     <ol class="trail" role="list">
-      {%- for e in profil.pengalaman %}
+      {%- for e in profil.riwayat %}
       <li class="trail-item{% if e.saat_ini %} is-current{% endif %}">
         <p class="trail-time measured">{{ e.periode }}</p>
-        <h3>{{ e.jabatan }}</h3>
-        <p class="trail-org">{{ e.perusahaan }}, {{ e.jenis }}</p>
+        <div class="trail-what">
+          <h3>{{ e.judul }}</h3>
+          <p class="trail-org">{{ e.sub }}</p>
+        </div>
+        {%- if e.baris %}
         <p class="trail-line">{% if e.tautan %}{% capture tautan %}<a class="nowrap" href="{{ e.tautan | remove_first: '/' | prepend: root }}">{{ e.tautan_teks }}</a>{% endcapture %}{{ e.baris | replace: e.tautan_teks, tautan }}{% else %}{{ e.baris }}{% endif %}</p>
+        {%- endif %}
       </li>
       {%- endfor %}
     </ol>
@@ -71,28 +76,14 @@ title: Angger Raka Sanjaya, mobile developer di Yogyakarta
 
 <section class="section section--far" id="keahlian" aria-labelledby="keahlian-judul">
   <div class="container">
-    <h2 id="keahlian-judul">Keahlian</h2>
-    <table class="skills">
+    <h2 id="keahlian-judul">{{ profil.judul.keahlian }}</h2>
+    <table class="rows-table">
       <tbody>
         {%- for k in profil.keahlian %}
         <tr><th scope="row">{{ k.kelompok }}</th><td>{{ k.isi }}</td></tr>
         {%- endfor %}
       </tbody>
     </table>
-  </div>
-</section>
-
-<section class="section section--far" id="pendidikan" aria-labelledby="pendidikan-judul">
-  <div class="container side-head">
-    <h2 id="pendidikan-judul">Pendidikan dan pelatihan</h2>
-    <div>
-      <ol class="rows" role="list">
-        {%- for e in profil.pendidikan %}
-        <li><h3>{{ e.institusi }}</h3><p>{{ e.program }}</p><p class="measured">{{ e.periode }}</p></li>
-        {%- endfor %}
-      </ol>
-      <p class="certs"><strong>Kelas {{ profil.sertifikat.penerbit }}</strong>, antara lain {{ profil.sertifikat.ringkas }}.</p>
-    </div>
   </div>
 </section>
 

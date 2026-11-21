@@ -4,7 +4,8 @@
   Bila file tidak ada, script slot di base.html membuang gambarnya dan bingkai kosong tetap tampil.
 {%- endcomment -%}
 <figure class="shot">
-  <div class="screen" data-slot="{{ include.slot }}" data-kind="product" data-alt="{{ include.alt | escape }}" style="aspect-ratio: {{ include.w }} / {{ include.h }}; max-inline-size: {{ include.w }}px">
+  {%- comment -%} fixed=true: satu lebar dan satu tinggi potong untuk deretan layar, dipotong dari atas {%- endcomment -%}
+  <div class="screen{% if include.fixed %} screen--fixed{% endif %}" data-slot="{{ include.slot }}" data-kind="product" data-alt="{{ include.alt | escape }}"{% unless include.fixed %} style="aspect-ratio: {{ include.w }} / {{ include.h }}; max-inline-size: {{ include.w }}px"{% endunless %}>
     {%- if include.src %}
     <img src="{{ include.src }}" alt="{{ include.alt | escape }}" width="{{ include.w }}" height="{{ include.h }}"{% if include.eager %} fetchpriority="high"{% else %} loading="lazy" decoding="async"{% endif %}>
     {%- endif %}

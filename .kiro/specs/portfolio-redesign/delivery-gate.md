@@ -4,10 +4,10 @@ Diperiksa 21 Nov 2026 pada hasil build `bundle exec jekyll build` dengan `github
 
 ## Ringkasan Hallmark
 
-- `sloplint _site --genre modern-minimal --render`: **0 FAIL, 0 REFLEX, 0 WARN**, 3 WARN gate 58 di-dismiss di stamp (jendela berisi indeks proyek atau tabel fakta). Baseline halaman lama: 43 FAIL, 10 REFLEX, 8 WARN.
-- Satu waiver: 84 (layar adalah frame Figma; aplikasi berjalan memuat data siswa dan tidak bisa diakses dari sini).
+- `sloplint _site --genre modern-minimal --render`: **clean, 0 FAIL, 0 REFLEX, 0 WARN** di 9 file (6 halaman, 3 stylesheet). Baseline halaman lama: 43 FAIL, 10 REFLEX, 8 WARN.
+- Satu waiver: 84 (layar adalah frame Figma; aplikasi berjalan memuat data siswa dan tidak bisa diakses dari sini). Satu dismissal tercatat untuk gate 58 (jendela berisi daftar baris, bukan prosa).
 - Review hero oleh agent terpisah: `fix`, 5 temuan, 4 diselesaikan, 1 dipertahankan (headline yang disetujui pemilik).
-- Review akhir oleh agent terpisah: lihat bagian akhir.
+- Review akhir oleh agent terpisah: `fix`, 7 temuan, 7 diselesaikan (rincian di bagian akhir).
 
 ## Blok 1: Hard Gate (semua harus "tidak")
 
@@ -41,7 +41,7 @@ Diklik di 1440, 375, dan 320 px. Tautan internal dibuka dan diperiksa halaman at
 | --- | --- | --- |
 | Semua | Langsung ke isi | Muncul pada Tab pertama, Enter ke `#main` |
 | Semua | Wordmark "Angger Raka Sanjaya" | Ke beranda |
-| Semua | Proyek, Pengalaman | Ke `#proyek` dan `#pengalaman` di beranda |
+| Semua | Proyek, Pengalaman | Ke `#proyek` dan `#pengalaman` (trail "Dari SMK sampai Google Play") di beranda |
 | Semua | Kontak | Ke `#kontak` di halaman yang sama |
 | Semua | Chat di WhatsApp (nav, hero beranda, band kontak) | `https://wa.me/628895316055` dengan pesan awal; 200 |
 | Semua | Kirim email, Email | `mailto:anggerrakasanjayapamungkas@gmail.com` |
@@ -75,7 +75,7 @@ Diklik di 1440, 375, dan 320 px. Tautan internal dibuka dan diperiksa halaman at
 | Pertanyaan | Hasil | Bukti |
 | --- | --- | --- |
 | Dial ditetapkan | YA | ENERGY 2 / RHYTHM 2 / MOTION 1 di `DESIGN.md` |
-| Hasil sesuai dial | YA | Komposisi berganti antar section (Stage, Index, Trail, Table, Rows, Band) dengan material yang sama; gerak hanya state |
+| Hasil sesuai dial | YA | Komposisi berganti antar section (Stage, Index, Trail, Table, Band) dengan material yang sama; gerak hanya state |
 | Satu titik fokus per layar | YA | Hero: headline dan panel layar; proyek: baris SIM Stembayo; halaman SIM: angka versi 1.3 |
 | Whitespace struktural | YA | Jarak section 120, 144, 176px menurut massa |
 | Satu aksen disengaja | YA | Amber pada aksi utama dan posisi saat ini; nav memakai tombol outline |
@@ -88,7 +88,7 @@ Diklik di 1440, 375, dan 320 px. Tautan internal dibuka dan diperiksa halaman at
 | --- | --- | --- |
 | C-1 keputusan default | PASS | Alasan per keputusan di `DESIGN.md` |
 | C-2 elemen tanpa fungsi | PASS | Click-through di atas |
-| C-3 section pengisi template | PASS | Setiap section memuat data pemilik: proyek, pengalaman, keahlian, pendidikan, kontak |
+| C-3 section pengisi template | PASS | Setiap section memuat data pemilik: proyek, riwayat kerja dan pendidikan, keahlian, kontak |
 | C-4 rusak di state, breakpoint, atau tanpa mouse | PASS | 320 sampai 1920 px, keyboard, gambar hilang |
 | C-5 klaim palsu | PASS | Lihat R-17, R-36, R-38 |
 | R-05 layout template | PASS | Tanpa hero plus tiga kartu, logo bar, bento, terminal palsu (blok kode berisi struktur folder asli tanpa bingkai jendela), footer empat kolom |
@@ -106,6 +106,24 @@ Diklik di 1440, 375, dan 320 px. Tautan internal dibuka dan diperiksa halaman at
 - Folder proyek (salinan di `/tmp`, tidak di-commit): menambah `proyek/uji-folder/` mengubah judul beranda menjadi "6 proyek, 2022 sampai 2026"; `published: false` mengembalikannya ke "5 proyek"; screenshot yang filenya tidak ada menyisakan bingkai kosong 259x560 tanpa gambar rusak. `proyek/_template/` tidak terbit.
 - File kerja tidak terbit: `_site/` tidak memuat `DESIGN.md`, `README.md`, `Gemfile`, `.kiro/`, `.hallmark/`, atau `proyek/_template/`.
 
-## Review akhir
+## Review hero dan review akhir
 
-Menunggu hasil agent reviewer.
+Keduanya dijalankan oleh agent reviewer terpisah yang tidak ikut membangun (Q21), memakai prompt `review-hero.md` dan `review-finish.md` dari Hallmark.
+
+| Review | Temuan | Penyelesaian |
+| --- | --- | --- |
+| Hero 1 | Headline bisa dipakai developer mana pun | Dipertahankan: headline disetujui pemilik kata per kata; alternatif reviewer ("SIM Stembayo, dari Figma sampai Google Play.") ditawarkan ke pemilik |
+| Hero 2 | Panel halaman proyek tidak menyebut peran pemilik | Kaki panel Untuk, Peran saya, Versi di beranda dan halaman proyek |
+| Hero 3 | Tidak ada nilai terukur dalam huruf mono | Sel Versi "1.3, 14 Agustus 2026" dalam mono biru dingin |
+| Hero 4 | Dua isian amber di layar pertama | Tombol nav memakai outline |
+| Hero 5 | Status bar iOS di frame Figma | Dipotong dari kelima frame |
+| Akhir 1 | Struktur folder tidak tampil dalam huruf mono; garis penghubung kosong | `font-family: inherit` pada `code`, penghubung diganti indentasi, ukuran huruf mengikuti jumlah baris |
+| Akhir 2 | Pengalaman kerja tipis (gate 77) | Kerja, kuliah, dan pelatihan digabung menjadi satu trail bertanggal lima baris |
+| Akhir 3 | Judul section generik | "Dari SMK sampai Google Play", "Flutter, Odoo, C#, dan Python", "Diskusi proyek lewat WhatsApp atau email", dan judul cerita per proyek |
+| Akhir 4 | Cerita mengulang tabel fakta | Cerita hanya menyebut yang dibangun; konteks, tahun, dan stack di tabel |
+| Akhir 5 | Angka 1.3 tanpa tanggal; poin pertama mengulang judul | Tanggal di bawah 1.3; poin itu dihapus |
+| Akhir 6 | Layar di "Layar aplikasi" beda lebar dan tinggi | Satu lebar (375 px) dan satu tinggi potong; satu kolom di 375 px |
+| Akhir 7 | Sel kaki panel dan caption berakhir satu kata | Untuk dan Peran saya berdampingan di atas baris Versi; `text-wrap: pretty` pada caption |
+| Akhir (sebelum) | Halaman lama menampilkan stack di setiap kartu | Baris indeks sekarang menampilkan dua item stack pertama untuk semua proyek |
+
+Setelah semua perbaikan: sloplint clean, click-through tanpa masalah di 1440, 375, dan 320 px, kontras terendah 6.88:1.

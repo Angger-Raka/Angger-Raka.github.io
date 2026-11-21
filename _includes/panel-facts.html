@@ -5,6 +5,6 @@
 <dl class="panel-facts">
   {%- if include.p.client %}<div><dt>Untuk</dt><dd>{{ include.p.client }}</dd></div>{% endif %}
   {%- if include.p.role %}<div><dt>Peran saya</dt><dd>{{ include.p.role }}</dd></div>{% endif %}
-  {%- if include.p.version %}<div><dt>Versi</dt><dd class="measured version">{{ include.p.version }}, {{ include.p.version_date }}</dd></div>{% endif %}
+  {%- if include.p.version %}<div class="panel-facts-wide"><dt>Versi</dt><dd class="measured version">{{ include.p.version }}, {{ include.p.version_date }}</dd></div>{% endif %}
 </dl>
 {%- endif %}

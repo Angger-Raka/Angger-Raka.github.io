@@ -9,29 +9,30 @@ stack: [Flutter, flutter_bloc, get_it, go_router, dio, dartz, equatable, Firebas
 links:
   - label: Lihat kode di GitHub
     url: https://github.com/Angger-Raka/flutter_boilerplate
+story_title: Tiga lapisan dengan BLoC dan GetIt
 code_caption: Struktur folder lib/ di repo
 code: |
   lib/
-  ├── core/
-  │   ├── common/
-  │   ├── config/
-  │   ├── constants/
-  │   ├── error/
-  │   ├── network/
-  │   ├── services/
-  │   ├── theme/
-  │   ├── usecases/
-  │   └── widgets/
-  ├── features/
-  │   ├── auth/
-  │   ├── home/
-  │   └── settings/
-  ├── l10n/
-  ├── app.dart
-  ├── locator.dart
-  ├── main.dart
-  └── router.dart
+    core/
+      common/
+      config/
+      constants/
+      error/
+      network/
+      services/
+      theme/
+      usecases/
+      widgets/
+    features/
+      auth/
+      home/
+      settings/
+    l10n/
+    app.dart
+    locator.dart
+    main.dart
+    router.dart
 ---
 Kodenya dibagi tiga lapisan, data, domain, dan presentation, dengan BLoC untuk state dan GetIt untuk dependency injection.
 
-Sudah tersedia flavor dev, staging, dan production, lokalisasi Inggris dan Indonesia, tema terang dan gelap, GoRouter, dan Firebase.
+Sudah tersedia flavor dev, staging, dan production, lokalisasi Inggris dan Indonesia, serta tema terang dan gelap.

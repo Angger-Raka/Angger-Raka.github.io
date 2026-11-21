@@ -7,6 +7,7 @@ title: Nama proyek             # maksimal 7 kata
 order: 9                       # urutan di beranda; angka kecil tampil lebih dulu
 year: 2026                     # tahun mulai, 4 digit
 summary: Satu kalimat tentang proyek ini, paling banyak 12 kata.
+story_title: Judul cerita dari fakta proyek, paling banyak 6 kata
 context: Pribadi               # contoh: Kerja di ..., Pribadi, Lomba ..., Hackathon ..., Kursus ...
 stack: [Flutter, Firebase]
 links:
@@ -37,4 +38,4 @@ links:
 
 published: false
 ---
-Ceritakan apa yang dibangun, untuk siapa, dan hasilnya. Paling banyak sekitar 60 kata, supaya satu layar tetap ringkas.
+Ceritakan apa yang kamu bangun, sekitar 40 kata. Konteks, tahun, dan stack sudah tampil di tabel di bawahnya, jadi tidak perlu diulang di sini.

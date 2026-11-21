@@ -9,24 +9,23 @@ stack: [C#, Windows Forms, .NET Framework 4.7.2, Krypton Toolkit, SQL Server]
 links:
   - label: Lihat kode di GitHub
     url: https://github.com/Angger-Raka/Rent-System
+story_title: Dua hari, tanpa internet
 code_caption: Form di proyek CarRentAdmin
 code: |
   CarRentAdmin/
-  ├── Feature/
-  │   ├── HistoryTransaksi.cs
-  │   ├── Katalog.cs
-  │   ├── ListKatalog.cs
-  │   ├── ManCars.cs
-  │   ├── ManCostumer.cs
-  │   ├── ManJenisIden.cs
-  │   ├── ManTypeIden.cs
-  │   ├── ManUser.cs
-  │   └── Option.cs
-  ├── Helper/            10 form dialog
-  ├── Login.cs
-  ├── MainAdmin.cs
-  └── Program.cs
+    Feature/
+      HistoryTransaksi.cs
+      Katalog.cs
+      ListKatalog.cs
+      ManCars.cs
+      ManCostumer.cs
+      ManJenisIden.cs
+      ManTypeIden.cs
+      ManUser.cs
+      Option.cs
+    Helper/          10 form dialog
+    Login.cs
+    MainAdmin.cs
+    Program.cs
 ---
-Saya membangunnya saat Lomba Kompetensi Siswa (LKS) SMK tingkat DIY 2023, dalam dua hari tanpa akses internet.
-
-Isinya panel admin untuk Windows: data mobil, pelanggan, pengguna, katalog, dan transaksi.
+Panel admin untuk Windows yang saya selesaikan dalam batas waktu lomba: login, data mobil, pelanggan, pengguna, katalog, dan riwayat transaksi.

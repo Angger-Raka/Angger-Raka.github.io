@@ -10,21 +10,20 @@ based_on: Template UI e-commerce TOKOTO, dimodifikasi
 links:
   - label: Lihat kode di GitHub
     url: https://github.com/Angger-Raka/PlsFixTech
-code_caption: Sebagian lib/. Layar lain berasal dari template TOKOTO.
+story_title: Chat Firebase di atas template
+code_caption: Sebagian lib/; folder layar lainnya bawaan template.
 code: |
   lib/
-  ├── helper/
-  │   ├── chatting.dart
-  │   ├── chatting_firebase.dart
-  │   └── client.dart
-  ├── screens/
-  │   ├── chat/
-  │   ├── validation_email/
-  │   └── 15 folder lain
-  ├── auth_services.dart
-  ├── main.dart
-  └── routes.dart
+    helper/
+      chatting.dart
+      chatting_firebase.dart
+      client.dart
+    screens/
+      chat/
+      validation_email/
+      15 folder lain
+    auth_services.dart
+    main.dart
+    routes.dart
 ---
-Proyek latihan pribadi. Tampilannya berangkat dari template UI e-commerce TOKOTO, lalu saya tambahkan chat realtime dan login dengan verifikasi email.
-
-Di README namanya Simple Private Chat.
+Saya menambahkan chat realtime dengan Firebase dan login dengan verifikasi email. Di README namanya Simple Private Chat.

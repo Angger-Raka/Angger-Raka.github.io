@@ -10,11 +10,10 @@ role: Mobile developer utama
 status: Rilis di Google Play
 platform: Android
 stack: [Flutter, Dart, Clean Architecture, SOLID]
-design: Dibuat teman saya di Figma
 links:
   - label: Buka di Google Play
     url: https://play.google.com/store/apps/details?id=id.sch.stembayo.sim
-screens_note: Frame desain Figma, sama dengan aplikasi yang rilis. Foto orang disamarkan.
+screens_note: Desain UI dibuat teman saya di Figma; frame-nya sama dengan aplikasi yang rilis. Foto orang disamarkan.
 # Versi dan tanggal dari listing Google Play (21 Nov 2026); perbarui saat versi baru rilis.
 version: "1.3"
 version_date: 14 Agustus 2026
@@ -42,15 +41,14 @@ screens:
     h: 969
     alt: Formulir jurnal harian PKL
     caption: Jurnal harian PKL
+story_title: Dari awal sampai versi 1.3
 reading:
   label: Versi
   value: "1.3"
+  date: 14 Agustus 2026
   title: Presensi tetap tersimpan saat sinyal buruk
   lines:
-    - Presensi tersimpan otomatis saat koneksi buruk.
     - Notifikasi status pengiriman presensi offline.
     - Banner status real-time di beranda dan formulir.
 ---
 Saya memulai aplikasi ini dan melanjutkannya sampai sekarang; satu developer lain sempat ikut sebentar. Kodenya disusun dengan SOLID dan Clean Architecture.
-
-Isinya presensi, jurnal Prakerin, pengajuan PKL, pengumuman, dan data siswa.

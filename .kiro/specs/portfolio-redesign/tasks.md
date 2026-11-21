@@ -40,17 +40,17 @@ Status: **build** (21 Nov 2026). Angka dalam kurung merujuk ke `requirements.md`
 - [x] 4.2 Lima folder proyek. (R3, R4)
 - [x] 4.3 Gambar: favicon inisial, gambar OG 1200x630 dari hero. (R8.3)
 - [x] 4.4 Log Hallmark (`.hallmark/log.json`).
-- [ ] 4.5 Review hero oleh agent reviewer, lalu perbaikan. (R10.2)
+- [x] 4.5 Review hero oleh agent reviewer (`fix`, 5 temuan, 4 diselesaikan, 1 dipertahankan). (R10.2)
 
 ## Fase 5: Sweep dan gerbang kualitas
 
-- [x] 5.1 `sloplint --render` pada semua halaman `_site/`: 0 FAIL, 0 REFLEX; 3 WARN 58 di-dismiss dengan alasan di stamp. (R10.1)
-- [ ] 5.2 Review akhir oleh agent reviewer. (R10.2)
+- [x] 5.1 `sloplint --render` pada semua halaman `_site/`: clean, 0 FAIL, 0 REFLEX, 0 WARN. (R10.1)
+- [x] 5.2 Review akhir oleh agent reviewer (`fix`, 7 temuan, 7 diselesaikan). (R10.2)
 - [x] 5.3 Kontras: teks terendah 6.88:1 di semua halaman. (R6.1)
 - [x] 5.4 Click-through puppeteer di 1440, 375, dan 320 px pada 6 halaman; semua tautan internal diklik; keyboard; console bersih. (R10.4)
 - [x] 5.5 Uji folder di salinan `/tmp`: 6 proyek dengan folder uji, 5 dengan `published: false`; gambar yang hilang menyisakan bingkai kosong. (R4, R10.5)
-- [ ] 5.6 `delivery-gate.md`. (R10.3)
-- [ ] 5.7 Perbandingan sebelum dan sesudah. (R10.6)
+- [x] 5.6 `delivery-gate.md`: semua blok PASS dengan bukti. (R10.3)
+- [x] 5.7 Perbandingan sebelum dan sesudah di `screens/`. (R10.6)
 
 ## Fase 6: Rilis
 

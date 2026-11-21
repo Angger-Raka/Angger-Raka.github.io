@@ -222,3 +222,19 @@ Isi di atas disetujui lewat G10. Saat build, beberapa baris dipendekkan agar lol
 | Pengalaman Odoo | belum ada | Belum tampil sebagai pengalaman; tahunnya belum diketahui (G6 menyebut 3 bulan mulai April) | Tidak ada tahun yang bersumber |
 
 Layar SIM Stembayo yang terbit: `beranda.webp` (foto profil dan foto berita disamarkan), `riwayat-presensi.webp`, `presensi-sekolah.webp` (pin peta disamarkan), `pengajuan-pkl.webp`, `jurnal-harian-pkl.webp`. Tidak dipakai: `riwayat-presensi-pkl` (empat foto wajah siswa), `login`, dan `presensi-pkl` (mirip presensi sekolah).
+
+### Perubahan dari review akhir
+
+| Elemen | Sebelum | Sesudah |
+| --- | --- | --- |
+| Judul pengalaman | Pengalaman kerja (dan section terpisah "Pendidikan dan pelatihan") | Dari SMK sampai Google Play: satu trail bertanggal berisi Asah, SktechID, Universitas Terbuka, Gamatechno, SMK |
+| Judul keahlian | Keahlian | Flutter, Odoo, C#, dan Python |
+| Judul kontak | Ceritakan aplikasi yang kamu butuhkan. | Diskusi proyek lewat WhatsApp atau email |
+| Sertifikat | Paragraf di bawah pendidikan | Baris "Kelas Dicoding" di tabel keahlian: "Antara lain Flutter, Dart, SOLID, Git, SQL, dan machine learning" |
+| Judul cerita proyek | Yang dibangun | SIM Stembayo "Dari awal sampai versi 1.3"; flutter_boilerplate "Tiga lapisan dengan BLoC dan GetIt"; Rent System "Dua hari, tanpa internet"; PlsFixTech "Chat Firebase di atas template"; flutter-kiro-skeleton "Satu skeleton, dua aplikasi contoh" |
+| Cerita Rent System | Menyebut ulang LKS dan tahun | "Panel admin untuk Windows yang saya selesaikan dalam batas waktu lomba: login, data mobil, pelanggan, pengguna, katalog, dan riwayat transaksi." |
+| Cerita PlsFixTech | Menyebut ulang template TOKOTO | "Saya menambahkan chat realtime dengan Firebase dan login dengan verifikasi email. Di README namanya Simple Private Chat." |
+| Cerita flutter-kiro-skeleton | Menyebut ulang Kiroween dan kategorinya | Hanya rencana isi repo |
+| Sorotan versi 1.3 | Tiga poin | Tanggal 14 Agustus 2026 di bawah angka; poin yang mengulang judul dihapus |
+| Desain UI SIM Stembayo | Baris di tabel fakta | Catatan di bawah panel layar: "Desain UI dibuat teman saya di Figma; frame-nya sama dengan aplikasi yang rilis. Foto orang disamarkan." |
+| Indeks proyek | Stack tidak tampil | Dua item stack pertama tampil di setiap baris |
