@@ -1,0 +1,69 @@
+# Data beranda. Sumber setiap fakta dicatat di .kiro/specs/portfolio-redesign/content.md.
+nama: Angger Raka Sanjaya
+lokasi: Yogyakarta dan sekitarnya
+status: Terbuka untuk proyek freelance dan posisi full-time.
+
+hero:
+  judul: Aplikasi Flutter dari arsitektur sampai rilis.
+  kalimat: Mobile developer di Yogyakarta, menerima proyek aplikasi untuk bisnis.
+
+kontak:
+  whatsapp: https://wa.me/628895316055?text=Halo%20Angger%2C%20saya%20ingin%20diskusi%20proyek%20aplikasi.
+  email: anggerrakasanjayapamungkas@gmail.com
+  linkedin: https://www.linkedin.com/in/anggerrakasanjaya/
+  linkedin_teks: linkedin.com/in/anggerrakasanjaya
+  github: https://github.com/Angger-Raka
+  github_teks: github.com/Angger-Raka
+
+pengalaman:
+  - jabatan: Mobile Application Developer
+    jenis: freelance
+    perusahaan: PT Solusi Karya Technology Indonesia
+    periode: Juli 2025 sampai sekarang
+    saat_ini: true
+    baris: Membangun SIM Stembayo dengan Flutter sampai rilis di Google Play.
+    tautan_teks: SIM Stembayo
+    tautan: /proyek/sim-stembayo/
+  - jabatan: Flutter Developer
+    jenis: magang
+    perusahaan: PT Gamatechno Indonesia
+    periode: Mei 2023 sampai Agustus 2024
+    baris: Bug fixing aplikasi Flutter sambil belajar BLoC dan dependency injection.
+
+pendidikan:
+  - institusi: Universitas Terbuka
+    program: S1 Sistem Informasi
+    periode: Juli 2024 sampai sekarang
+  - institusi: SMK Negeri 2 Depok Sleman
+    program: Sistem Informatika, Jaringan dan Aplikasi (SIJA)
+    periode: 2019 sampai Mei 2024
+  - institusi: Asah led by Dicoding
+    program: Jalur Data Science Specialist
+    periode: Agustus 2026 sampai sekarang
+
+sertifikat:
+  penerbit: Dicoding
+  ringkas: Flutter, Dart, SOLID, Git, SQL, dan machine learning
+  kelas:
+    - Belajar Membuat Aplikasi Flutter untuk Pemula
+    - Memulai Pemrograman dengan Dart
+    - Belajar Prinsip Pemrograman SOLID
+    - Belajar Dasar Git dengan GitHub
+    - Belajar Dasar Structured Query Language (SQL)
+    - Belajar Machine Learning untuk Pemula
+
+keahlian:
+  - kelompok: Mobile
+    isi: Flutter, Dart, BLoC, Clean Architecture, SOLID, Firebase, Android, iOS
+  - kelompok: Web
+    isi: HTML, JavaScript, PHP, Vue.js, Nuxt.js
+  - kelompok: Sistem bisnis
+    isi: "Odoo ERP untuk UMKM: proses bisnis, konfigurasi, pendampingan implementasi"
+  - kelompok: Desktop
+    isi: C#, Windows Forms, SQL Server
+  - kelompok: Data
+    isi: Python, SQL, analisis dan visualisasi data, machine learning
+  - kelompok: Alat
+    isi: Git, GitHub
+
+bulan: [Januari, Februari, Maret, April, Mei, Juni, Juli, Agustus, September, Oktober, November, Desember]

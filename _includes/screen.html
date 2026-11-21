@@ -1,0 +1,15 @@
+{%- comment -%}
+  Satu layar aplikasi. Parameter: slot, src (relatif terhadap halaman), alt, w, h (ukuran piksel file), caption, eager.
+  Lebar tampil dibatasi lebar piksel file, jadi gambar tidak pernah diperbesar.
+  Bila file tidak ada, script slot di base.html membuang gambarnya dan bingkai kosong tetap tampil.
+{%- endcomment -%}
+<figure class="shot">
+  <div class="screen" data-slot="{{ include.slot }}" data-kind="product" data-alt="{{ include.alt | escape }}" style="aspect-ratio: {{ include.w }} / {{ include.h }}; max-inline-size: {{ include.w }}px">
+    {%- if include.src %}
+    <img src="{{ include.src }}" alt="{{ include.alt | escape }}" width="{{ include.w }}" height="{{ include.h }}"{% if include.eager %} fetchpriority="high"{% else %} loading="lazy" decoding="async"{% endif %}>
+    {%- endif %}
+  </div>
+  {%- if include.caption %}
+  <figcaption>{{ include.caption }}</figcaption>
+  {%- endif %}
+</figure>

@@ -1,0 +1,12 @@
+{%- assign profil = site.data.profil -%}
+{%- assign bulan_ke = site.time | date: "%-m" | minus: 1 -%}
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p class="colophon">{{ profil.nama }}, {{ profil.lokasi }}. Situs ini dibangun dengan Jekyll di GitHub Pages dan terakhir diperbarui {{ profil.bulan[bulan_ke] }} {{ site.time | date: "%Y" }}.</p>
+    <ul class="footer-links" role="list">
+      <li><a href="{{ profil.kontak.linkedin }}">LinkedIn</a></li>
+      <li><a href="{{ profil.kontak.github }}">GitHub</a></li>
+      <li><a href="mailto:{{ profil.kontak.email }}">Email</a></li>
+    </ul>
+  </div>
+</footer>

@@ -1,0 +1,13 @@
+{%- comment -%}
+  Menghitung "root": awalan relatif dari halaman ini ke akar situs ("" di beranda,
+  "../../" di /proyek/<slug>/). Tautan relatif tetap jalan di GitHub Pages,
+  di file:// saat pratinjau, dan saat dicek oleh sloplint.
+{%- endcomment -%}
+{%- assign url_parts = page.url | split: "/" -%}
+{%- assign depth = 0 -%}
+{%- for part in url_parts -%}{%- if part != "" -%}{%- assign depth = depth | plus: 1 -%}{%- endif -%}{%- endfor -%}
+{%- assign url_end = page.url | slice: -1, 1 -%}
+{%- if url_end != "/" -%}{%- assign depth = depth | minus: 1 -%}{%- endif -%}
+{%- assign root = "" -%}
+{%- if depth > 0 -%}{%- for i in (1..depth) -%}{%- assign root = root | append: "../" -%}{%- endfor -%}{%- endif -%}
+{%- assign home = root | default: "./" -%}

@@ -1,0 +1,29 @@
+title: Angger Raka Sanjaya
+description: Mobile developer di Yogyakarta. Membangun aplikasi Flutter dari arsitektur sampai rilis di Google Play.
+lang: id
+url: https://angger-raka.github.io
+baseurl: ""
+
+# Tanpa tema bawaan GitHub Pages; semua tampilan ada di assets/css.
+theme: null
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+# Setiap halaman di bawah proyek/ memakai layout project.
+defaults:
+  - scope:
+      path: "proyek"
+      type: pages
+    values:
+      layout: project
+
+# File kerja yang tidak boleh terbit. Folder berawalan titik atau garis bawah
+# (.kiro, .hallmark, proyek/_template) sudah diabaikan Jekyll.
+exclude:
+  - DESIGN.md
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

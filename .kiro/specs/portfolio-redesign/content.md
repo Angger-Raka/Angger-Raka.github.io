@@ -200,3 +200,25 @@ Untuk profil LinkedIn:
 - Skill Flutter tertaut ke "2 pengalaman di PT Solusi Karya Technology Indonesia", sedangkan PDF profil hanya memuat satu posisi di sana (G5).
 
 Untuk aplikasi SIM Stembayo: layar yang dikirim memuat dua salah ketik, "Yuk eritakan aktivitas PKLmu hari ini!" dan "Forgot your passowrd?".
+
+## Perubahan saat build (21 Nov 2026)
+
+Isi di atas disetujui lewat G10. Saat build, beberapa baris dipendekkan agar lolos batas Hallmark sekitar 80 kata per layar, dan jawaban G1 sampai G9 dimasukkan. Faktanya tidak berubah; sumber kebenaran sekarang `_data/profil.yml` dan `proyek/*/index.md`.
+
+| Elemen | Versi yang disetujui | Di situs | Alasan |
+| --- | --- | --- | --- |
+| Baris SktechID | Membangun SIM Stembayo dengan Flutter, SOLID, dan Clean Architecture sampai rilis di Google Play. | Membangun SIM Stembayo dengan Flutter sampai rilis di Google Play. | Batas kata; SOLID dan Clean Architecture tetap ada di halaman SIM Stembayo dan di keahlian |
+| Jenis kerja SktechID | tidak ditampilkan | freelance | Jawaban G5 |
+| Baris Gamatechno | Membantu bug fixing aplikasi Flutter sambil belajar BLoC, dependency injection, dan SOLID. | Bug fixing aplikasi Flutter sambil belajar BLoC dan dependency injection. | Batas kata |
+| Keahlian Mobile | Flutter, Dart, BLoC, dependency injection, SOLID, Clean Architecture, Android, iOS, Firebase | Flutter, Dart, BLoC, Clean Architecture, SOLID, Firebase, Android, iOS | Batas kata |
+| Keahlian Sistem bisnis | Konfigurasi Odoo ERP dan pendampingan pengguna untuk implementasi | Odoo ERP untuk UMKM: proses bisnis, konfigurasi, pendampingan implementasi | Jawaban G6 (penyesuaian proses bisnis, bukan konfigurasi biasa) |
+| Keahlian Data | Python, SQL, data cleaning, data wrangling, analisis dan visualisasi data, machine learning (supervised dan unsupervised), TensorFlow, scikit-learn | Python, SQL, analisis dan visualisasi data, machine learning | Batas kata |
+| Sertifikat | Enam nama kelas lengkap | Kelas Dicoding, antara lain Flutter, Dart, SOLID, Git, SQL, dan machine learning. | Batas kata; nama lengkap tetap di LinkedIn |
+| Peran SIM Stembayo | Satu kalimat panjang | Fakta "Peran: Mobile developer utama"; cerita "Saya memulai aplikasi ini dan melanjutkannya sampai sekarang; satu developer lain sempat ikut sebentar." | Dipisah ke panel fakta dan cerita |
+| Desain UI SIM Stembayo | belum diketahui | "Dibuat teman saya di Figma", dengan catatan "Frame desain Figma, sama dengan aplikasi yang rilis. Foto orang disamarkan." | Jawaban G1, R1.8 |
+| Sorotan versi 1.3 | data PS | "Presensi tetap tersimpan saat sinyal buruk", tiga baris dari changelog | Jawaban G3 |
+| Cerita proyek lain | draf di atas | Dipendekkan menjadi dua paragraf pendek per proyek | Batas kata |
+| Platform dan status di halaman proyek | direncanakan tampil | Tidak tampil di panel fakta; status tetap tampil sebagai chip di beranda | Batas kata |
+| Pengalaman Odoo | belum ada | Belum tampil sebagai pengalaman; tahunnya belum diketahui (G6 menyebut 3 bulan mulai April) | Tidak ada tahun yang bersumber |
+
+Layar SIM Stembayo yang terbit: `beranda.webp` (foto profil dan foto berita disamarkan), `riwayat-presensi.webp`, `presensi-sekolah.webp` (pin peta disamarkan), `pengajuan-pkl.webp`, `jurnal-harian-pkl.webp`. Tidak dipakai: `riwayat-presensi-pkl` (empat foto wajah siswa), `login`, dan `presensi-pkl` (mirip presensi sekolah).

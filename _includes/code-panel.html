@@ -1,0 +1,6 @@
+<figure class="code-panel">
+  <pre><code>{{ include.code | strip | escape }}</code></pre>
+  {%- if include.caption %}
+  <figcaption>{{ include.caption }}</figcaption>
+  {%- endif %}
+</figure>
