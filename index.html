@@ -31,10 +31,7 @@ title: Angger Raka Sanjaya, mobile developer di Yogyakarta
         {% include screen.html slot=s.file src=src alt=s.alt w=s.w h=s.h eager=true %}
         {%- endfor %}
       </div>
-      <dl class="panel-facts">
-        <div><dt>Untuk</dt><dd>{{ featured.client }}</dd></div>
-        <div><dt>Peran saya</dt><dd>{{ featured.role }}</dd></div>
-      </dl>
+      {% include panel-facts.html p=featured %}
     </figure>
     {%- endif %}
   </div>

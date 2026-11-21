@@ -165,6 +165,7 @@ Skill tidak disalin ke repo (Q22). Setiap sesi kerja, keduanya di-clone ke `/tmp
 ### 4.5 Tooling di sandbox
 
 - `/tmp` terhapus antar sesi (terjadi 21 Nov 2026), jadi semua tooling di bawah disiapkan ulang lewat task 1.2.
+- Perintah dengan direktori kerja di dalam workspace kadang melihat `/tmp` yang berbeda. Jalankan perintah dari `/tmp` dengan path absolut ke repo.
 - Node 22; Ruby 3.4.10 lewat mise; `gcc` dan `make` tersedia.
 - Gem dipasang di `GEM_HOME=/tmp/gems` karena `/root` tidak bisa ditulis. Sudah terpasang dan diuji: `jekyll` 3.10.0 dan `github-pages` 233. GitHub Pages saat ini memakai `github-pages` 232 ([pages.github.com/versions](https://pages.github.com/versions/)), jadi build final memakai 232.
 - Render Hallmark: `puppeteer-core` di `/tmp/hallmark-tools` dengan wrapper untuk `chrome-headless-shell` milik Playwright (`--no-sandbox`). Diuji di sesi pertama dan menghasilkan 5 screenshot.
@@ -203,7 +204,7 @@ Diringkas dari `references/themes/console.md`:
 ### 5.4 Signature
 
 - Layar SIM Stembayo di hero beranda (Q16), di dalam panel garis rambut bersama fakta singkatnya: untuk siapa, dan tersedia di Google Play.
-- Usulan komposisi: layar beranda sebagai panel utama dan layar pengajuan PKL di sampingnya. Kelima layar tampil di halaman proyek.
+- Dibangun: layar beranda dan riwayat presensi di panel hero. Kaki panel memuat Untuk, Peran saya, dan Versi ("1.3, 14 Agustus 2026", huruf mono biru dingin), di beranda dan di halaman proyek. Status bar iOS frame Figma dipotong. Kelima layar tampil di halaman proyek.
 - Layar 1x berlebar 375 px ditampilkan paling lebar 375 px CSS. Di layar retina hasilnya agak lunak; ekspor 3x (G2) memperbaikinya tanpa mengubah layout.
 - Foto orang di layar beranda dan presensi diganti atau disamarkan sebelum layar masuk repo (R1.7, G2).
 
@@ -244,15 +245,20 @@ Total sekitar 420 dari batas 450 kata.
 
 | # | Bagian | Isi | Kata |
 | --- | --- | --- | --- |
-| 1 | Nav | Sama dengan beranda; "Proyek" menuju `/#proyek` | ~8 |
-| 2 | Hero | Nama proyek, ringkasan maksimal 12 kata, aksi utama (Google Play atau GitHub) dan kontak, layar utama atau bingkai dummy | ≤ 25 |
-| 3 | Fakta | Panel: peran, tim, konteks, tahun, status, platform, stack, dasar template atau desain pihak lain bila ada | ≤ 40 |
-| 4 | Cerita | Isi Markdown dari `index.md` | ≤ 150 |
-| 5 | Layar | 2 sampai 4 layar, hanya bila `screens` berisi 2 atau lebih | ≤ 20 |
-| 6 | Proyek lain dan kontak | Tautan ke proyek sebelum dan berikutnya, aksi kontak | ≤ 30 |
-| 7 | Footer | Sama dengan beranda | ≤ 20 |
+Struktur yang dibangun:
 
-Untuk proyek tanpa layar, hero menampilkan bingkai dummy atau, bila diisi, blok `code` berisi teks asli dari repo (misalnya struktur folder `lib/` flutter_boilerplate).
+| # | Bagian | Isi |
+| --- | --- | --- |
+| 1 | Nav | Sama dengan beranda; "Proyek" menuju `#proyek` di beranda |
+| 2 | Hero | Nama proyek, ringkasan maksimal 12 kata, aksi utama (Google Play atau GitHub) dan "Diskusikan proyek"; visual: dua layar pertama dengan kaki panel (Untuk, Peran saya, Versi) dan catatan, atau blok `code`, atau bingkai kosong |
+| 3 | Fakta dan cerita | Panel fakta (konteks, tahun, stack, dasar, desain UI; peran bila tidak ada layar) di samping cerita Markdown |
+| 4 | Sorotan versi | Hanya bila ada `reading`: nilai versi besar dalam huruf mono, judul, tiga baris dari changelog |
+| 5 | Layar aplikasi | Layar ketiga dan seterusnya dengan caption |
+| 6 | Proyek lain | Semua proyek lain dengan tahunnya |
+| 7 | Kontak | Band yang sama dengan beranda |
+| 8 | Footer | Sama dengan beranda |
+
+Cerita setiap proyek dibatasi sekitar 40 kata agar tiap layar tetap di sekitar 80 kata.
 
 ## 7. Desain teknis
 
@@ -273,7 +279,7 @@ Angger-Raka.github.io/
 ├── _data/profil.yml               create: identitas, kontak, pengalaman, pendidikan, sertifikat, keahlian
 ├── _layouts/base.html             create: <html lang="id">, head, nav, footer
 ├── _layouts/project.html          create: halaman proyek
-├── _includes/                     create: nav, footer, kontak, panel proyek, bingkai layar
+├── _includes/                     create: root (awalan tautan relatif), nav, footer, kontak, screen, panel-facts, code-panel
 ├── index.html                     edit: diganti penuh, isinya Liquid
 ├── proyek/
 │   ├── _template/index.md         create: contoh untuk disalin, tidak terbit
@@ -340,6 +346,16 @@ Cerita proyek dalam Markdown, paling banyak sekitar 150 kata.
 | `based_on` | tidak | template atau kode pihak lain yang dipakai (R1.8) |
 | `featured` | tidak | `true` untuk proyek di hero beranda, satu saja |
 | `published` | tidak | `false` untuk menyembunyikan |
+| `client` | tidak | "Untuk" di kaki panel layar |
+| `version`, `version_date` | tidak | Versi terakhir dan tanggalnya, di kaki panel layar |
+| `status_now` | tidak | `true` memberi chip status warna amber (sedang berjalan) |
+| `screens_note` | tidak | Catatan di bawah panel layar (misalnya asal frame) |
+| `code_caption` | tidak | Keterangan blok `code` |
+| `reading` | tidak | Sorotan versi: `label`, `value`, `title`, `lines` |
+
+Yang dibangun berbeda dari rencana: `status` dan `platform` opsional; `platform` dan `status` tidak tampil di panel fakta halaman proyek (status tetap tampil sebagai chip di beranda).
+
+Semua tautan internal relatif terhadap halaman (`_includes/root.html` menghitung awalan `../`), sehingga situs juga bisa dibuka lewat `file://` dan diperiksa sloplint tanpa server.
 
 ### 7.4 Logika beranda
 
@@ -413,6 +429,8 @@ exclude: [DESIGN.md, README.md, Gemfile, Gemfile.lock, vendor]
 | Delivery Gate | Empat blok antislop | Semua PASS dengan bukti | `delivery-gate.md`, PR |
 | Sebelum dan sesudah | `sloplint --before` dan screenshot | Tersedia untuk pemilik | `.hallmark/` |
 | Situs live | Buka beranda dan satu halaman proyek setelah merge | Tampil tanpa error | Catatan di PR |
+
+Hasil per 21 Nov 2026: lihat `delivery-gate.md`.
 
 ## 10. Risiko
 

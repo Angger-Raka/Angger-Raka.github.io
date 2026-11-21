@@ -23,8 +23,9 @@ layout: base
         {% include screen.html slot=s.file src=s.file alt=s.alt w=s.w h=s.h eager=true %}
         {%- endfor %}
       </div>
+      {% include panel-facts.html p=page %}
       {%- if page.screens_note %}
-      <figcaption class="panel-head"><span>{{ page.screens_note }}</span></figcaption>
+      <figcaption class="panel-note">{{ page.screens_note }}</figcaption>
       {%- endif %}
     </figure>
     {%- elsif page.code %}
@@ -42,7 +43,7 @@ layout: base
 <section class="section section--first" aria-labelledby="cerita-judul">
   <div class="container split">
     <dl class="facts panel">
-      {%- if page.role %}<div><dt>Peran</dt><dd>{{ page.role }}</dd></div>{% endif %}
+      {%- if page.role and screen_count == 0 %}<div><dt>Peran</dt><dd>{{ page.role }}</dd></div>{% endif %}
       <div><dt>Konteks</dt><dd>{{ page.context }}</dd></div>
       <div><dt>Tahun</dt><dd class="measured">{{ page.year }}</dd></div>
       <div><dt>Stack</dt><dd>{{ page.stack | join: ", " }}</dd></div>

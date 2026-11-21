@@ -18,6 +18,10 @@ links:
 # status: Sedang dikerjakan     # tampil sebagai chip di beranda
 # status_now: true              # chip amber, untuk proyek yang sedang berjalan
 # platform: Android
+# client: Nama klien             # tampil sebagai "Untuk" di bawah layar
+# version: "1.0"                 # versi terakhir, ditulis dalam huruf mono
+# version_date: 1 Januari 2026   # tanggal rilis versi itu
+# featured: true                 # tampil di hero beranda; pakai di satu proyek saja
 # based_on: Template ...        # wajib diisi bila memakai template atau kode orang lain
 # design: Dibuat ... di Figma   # wajib diisi bila desain UI dibuat orang lain
 # screens:                      # file gambar di folder ini; w dan h adalah ukuran piksel file

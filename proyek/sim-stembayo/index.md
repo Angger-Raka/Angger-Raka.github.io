@@ -15,28 +15,31 @@ links:
   - label: Buka di Google Play
     url: https://play.google.com/store/apps/details?id=id.sch.stembayo.sim
 screens_note: Frame desain Figma, sama dengan aplikasi yang rilis. Foto orang disamarkan.
+# Versi dan tanggal dari listing Google Play (21 Nov 2026); perbarui saat versi baru rilis.
+version: "1.3"
+version_date: 14 Agustus 2026
 screens:
   - file: beranda.webp
     w: 375
-    h: 812
+    h: 768
     alt: Beranda siswa SIM Stembayo dengan menu izin, Prakerin, e-kartu, dan jadwal
   - file: riwayat-presensi.webp
     w: 473
-    h: 1024
+    h: 969
     alt: Riwayat presensi sekolah dengan jam masuk, jam pulang, dan status kehadiran
   - file: presensi-sekolah.webp
     w: 387
-    h: 1024
+    h: 979
     alt: Formulir presensi sekolah dengan peta area sekolah dan status di dalam area
     caption: Presensi sekolah berbasis lokasi
   - file: pengajuan-pkl.webp
     w: 375
-    h: 812
+    h: 768
     alt: Daftar pengajuan PKL beserta status verifikasinya
     caption: Pengajuan PKL dan statusnya
   - file: jurnal-harian-pkl.webp
     w: 473
-    h: 1024
+    h: 969
     alt: Formulir jurnal harian PKL
     caption: Jurnal harian PKL
 reading:

@@ -2,6 +2,7 @@
  * hero: Stage (swapped from Poster: no photograph; the owner's signature is the SIM Stembayo screen) · nav: floating pill · footer: colophon block · imagery: the product in true colour (owner's Figma frames, faces blurred) and folder trees from the repos · signature: two SIM Stembayo screens in the hero panel · console: graphite
  * axes: dark/grotesk-sans/chromatic-amber · posture: restrained · contrast: pass · fold: pass · v2.0.0 */
 /* Hallmark · pre-emit critique: P4 H4 E4 S4 R5 V3 · weakest: V, a Stage hero is the common posture; kept it because the app screen is the owner's chosen signature, and varied the sections with an index, a trail, a table and a band */
+/* Hallmark · hero-review: fix · 5 findings · 4 resolved (role and version cells on both panels, outlined nav action, status bars cropped), 1 kept (headline: owner-approved copy, the reviewer's alternative offered to the owner) */
 /* Hallmark · waive 84 · capturing the running school app would show students' private data, and no build of it is reachable here · the owner supplied the Figma frames of SIM Stembayo and confirms the released app looks the same */
 /* Hallmark · dismissed 58 · each flagged window holds a list read row by row, the five-row project index on the home page or the label and value facts table on a project page, beside one short head or two short paragraphs; nothing in it is running prose */
 @import url("./tokens.css");
@@ -52,7 +53,9 @@ a:hover { text-decoration-color: var(--color-accent); }
 .panel-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: var(--space-xs) var(--space-md); padding: var(--space-sm) var(--space-lg); border-bottom: var(--rule-hair) solid var(--color-rule); font-size: var(--text-sm); }
 .panel-head a { display: inline-flex; align-items: center; min-height: 44px; color: var(--color-ink); font-weight: 500; }
 .panel-head span { color: var(--color-muted); }
-.panel-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; border-top: var(--rule-hair) solid var(--color-rule); }
+.panel-facts { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); margin: 0; border-top: var(--rule-hair) solid var(--color-rule); }
+.panel-facts .version { color: var(--color-cool); }
+.panel-note { padding: var(--space-sm) var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule); color: var(--color-muted); font-size: var(--text-sm); }
 .panel-facts div { padding: var(--space-sm) var(--space-lg); }
 .panel-facts div + div { border-inline-start: var(--rule-hair) solid var(--color-rule); }
 .panel-facts dt { color: var(--color-muted); font-size: var(--text-sm); }
@@ -193,7 +196,9 @@ a:hover { text-decoration-color: var(--color-accent); }
   .index-row, .index-row--lead { padding: var(--space-lg); }
   .index-row--lead .index-title { font-size: var(--text-2xl); }
   .screens { gap: var(--space-sm); padding: var(--space-sm); }
-  .panel-head, .panel-facts div { padding-inline: var(--space-md); }
+  .panel-head, .panel-facts div, .panel-note { padding-inline: var(--space-md); }
+  .panel-facts { grid-auto-flow: row; }
+  .panel-facts div + div { border-inline-start: 0; border-top: var(--rule-hair) solid var(--color-rule); }
   .skills th { width: 34%; }
   .reading { padding: var(--space-xl); }
   .facts div { grid-template-columns: minmax(0, 1fr); gap: var(--space-3xs); }
