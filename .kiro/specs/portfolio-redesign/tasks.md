@@ -54,6 +54,6 @@ Status: **build** (21 Nov 2026). Angka dalam kurung merujuk ke `requirements.md`
 
 ## Fase 6: Rilis
 
-- [ ] 6.1 Push dan buka PR ke `main`. (R11.1)
+- [x] 6.1 Branch di-push. PR ke `main` dibuka pemilik lewat https://github.com/Angger-Raka/Angger-Raka.github.io/compare/main...feat/portfolio-redesign?expand=1 (pembuatan PR dari sandbox diblokir kebijakan Kiro). (R11.1)
 - [ ] 6.2 Revisi; ulangi 5.1 dan 5.4 untuk setiap perubahan.
 - [ ] 6.3 Merge setelah pemilik setuju; cek situs live. (R11.1)
