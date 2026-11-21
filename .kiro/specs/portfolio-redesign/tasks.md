@@ -1,14 +1,16 @@
 # Tasks: Redesign portfolio Angger Raka Sanjaya
 
-Status: **draft v2** (21 Nov 2026). Fase 0 harus selesai sebelum Fase 2. Angka dalam kurung merujuk ke `requirements.md`.
+Status: **draft v3** (21 Nov 2026). Fase 0 harus selesai sebelum Fase 2. Angka dalam kurung merujuk ke `requirements.md`.
 
 ## Fase 0: Keputusan dan data
 
 - [x] 0.1 Jawaban Q1 sampai Q24 dan PDF LinkedIn diterima; spec diperbarui.
 - [x] 0.2 Analisis data: PDF, listing Google Play, repo proyek, materi visual; draf `content.md`.
-- [ ] 0.3 Pemilik menjawab F1 sampai F14; `content.md` dan spec diperbarui.
-- [ ] 0.4 Pemilik mengirim materi: screenshot bersih SIM Stembayo (F1) dan materi opsional (F3, F4).
-- [ ] 0.5 Pemilik menyetujui `content.md`, termasuk draf hero dan daftar kalimat yang diubah. (R1.10)
+- [x] 0.3 Pemilik menjawab F1 sampai F14; `content.md` dan spec diperbarui (21 Nov 2026).
+- [x] 0.4 Materi diterima: lima layar SIM Stembayo dan daftar keahlian LinkedIn. Layar disimpan di `materi-mentah/sim-stembayo/`, di luar repo.
+- [ ] 0.5 Pemilik menjawab G1 sampai G9; bila ada, pemilik mengirim ekspor 3x layar SIM Stembayo (G2).
+- [ ] 0.6 Siapkan layar SIM Stembayo: ganti atau samarkan tiga foto orang, konversi ke WebP, catat ukurannya. (R1.7, R8.3)
+- [ ] 0.7 Pemilik menyetujui `content.md`, termasuk draf hero dan daftar kalimat yang diubah (G10). (R1.10)
 
 ## Fase 1: Persiapan
 

@@ -1,6 +1,6 @@
 # Requirements: Redesign portfolio Angger Raka Sanjaya
 
-Status: **draft v2** (21 Nov 2026). Jawaban Q1 sampai Q24 sudah dicatat. Pertanyaan lanjutan F1 sampai F14 menunggu jawaban (tabel di akhir file).
+Status: **draft v3** (21 Nov 2026). Jawaban Q1 sampai Q24 dan F1 sampai F14 sudah dicatat. Pertanyaan G1 sampai G10 menunggu jawaban (tabel di akhir file).
 Repo: `Angger-Raka/Angger-Raka.github.io` (publik), GitHub Pages dari `main` root dengan build legacy (Jekyll), live di https://angger-raka.github.io/
 
 ## Latar belakang
@@ -41,7 +41,24 @@ Redesign ini mengganti seluruh konten dengan data asli dan membangun ulang tampi
 | Q23 | Branch `feat/portfolio-redesign`, PR ke `main`, merge setelah disetujui; spec di-push ke branch itu |
 | Q24 | Tanpa domain custom dan tanpa analytics |
 
-Q18 dan Q19 saling bertabrakan: HTML statis murni tidak bisa membaca isi folder. Spec ini memakai Jekyll yang sudah dijalankan GitHub Pages pada repo ini, jadi tetap tanpa build step di sisi pemilik (`design.md` bagian 7). Menunggu konfirmasi F9.
+Q18 dan Q19 saling bertabrakan: HTML statis murni tidak bisa membaca isi folder. Spec ini memakai Jekyll yang sudah dijalankan GitHub Pages pada repo ini, jadi tetap tanpa build step di sisi pemilik (`design.md` bagian 7). Disetujui di F9.
+
+| ID | Jawaban F (21 Nov 2026) |
+| --- | --- |
+| F1 | Lima layar SIM Stembayo dikirim: beranda, presensi PKL, pengajuan PKL, jurnal harian PKL, login |
+| F2 | Dua developer mobile: pemilik memulai dan melanjutkan pengembangan, satu teman ikut sebentar |
+| F3 | PlsFixTech adalah latihan pribadi; pemilik menambahkan chat Firebase dan login dengan verifikasi email di atas template; tampil dengan keterangan template, tanpa gambar |
+| F4 | Rent System dibuat saat LKS tingkat DIY, dikerjakan dua hari tanpa internet |
+| F5 | Gamatechno: magang sebagai Flutter Developer, membantu bug fixing sambil belajar Flutter |
+| F6 | UT: S1 Sistem Informasi, Juli 2024 sampai sekarang ("Information Technology" adalah terjemahan pemilik). SMK: jurusan SIJA |
+| F7 | WhatsApp sebagai aksi utama, email kedua, LinkedIn dan GitHub di kontak |
+| F8 | Status: "Terbuka untuk proyek freelance dan posisi full-time." |
+| F9 | Jekyll bawaan GitHub Pages disetujui |
+| F10 | Hero fokus aplikasi Flutter untuk bisnis; Asah masuk Pendidikan dan pelatihan |
+| F11 | Tidak ada proyek web yang bisa ditampilkan. Untuk Odoo, pemilik membantu klien menyusun konfigurasi dan mendampingi penggunaannya sampai implementasi |
+| F12 | Daftar keahlian lengkap dikirim (PDF halaman Keahlian dan teks) |
+| F13 | Urutan usulan, tanpa proyek tambahan, flutter-kiro-skeleton berlabel "Sedang dikerjakan" |
+| F14 | Tanpa foto diri |
 
 ## Ruang lingkup
 
@@ -66,10 +83,10 @@ Tidak termasuk: blog, CMS, form kontak, data GitHub yang diambil live, analytics
 2. JIKA sebuah fakta tidak punya sumber, MAKA fakta itu TIDAK BOLEH tampil (antislop R-17, R-36, R-38; Hallmark Floor 8).
 3. Situs TIDAK BOLEH memuat sisa template lama: "John Doe", angka 3+/20+/15/2, proyek E-Commerce App, Finance Tracker, Smart Notes, dan `mailto:hello@johndoe.com`.
 4. KETIKA teks LinkedIn diringkas, faktanya HARUS tetap sama, dan setiap kalimat yang berubah HARUS dicatat sebelum dan sesudah (Q4).
-5. Nomor HP HANYA boleh tampil dalam bentuk yang dipilih di F7. Sampai saat itu, nomor HP TIDAK BOLEH ditulis di file mana pun di repo publik ini.
+5. Nomor HP HANYA boleh tampil sebagai tautan WhatsApp (`wa.me`) dengan label "Chat di WhatsApp" (F7).
 6. Tidak ada bagian testimoni (Q9, R-18).
-7. Gambar di situs TIDAK BOLEH memuat data pribadi orang lain: nama, nomor induk, nomor telepon, lokasi, atau wajah.
-8. Karya yang dibangun di atas template atau kode pihak lain HARUS menyebutnya di halaman proyeknya, dan gambar milik template TIDAK BOLEH ditampilkan sebagai karya pemilik.
+7. Gambar di situs TIDAK BOLEH memuat data pribadi orang lain: nama, nomor induk, nomor telepon, lokasi, atau wajah. Foto orang di dalam screenshot HARUS diganti di file sumbernya atau disamarkan (G2).
+8. Karya yang dibangun di atas template, kode, atau desain pihak lain HARUS menyebutnya di halaman proyeknya, dan gambar milik template TIDAK BOLEH ditampilkan sebagai karya pemilik (G1 untuk desain UI SIM Stembayo).
 9. Durasi hasil hitungan LinkedIn ("1 tahun 5 bulan") TIDAK BOLEH tampil; yang tampil hanya rentang tanggal.
 10. Inventaris konten HARUS disetujui pemilik sebelum build dimulai.
 
@@ -82,7 +99,7 @@ Tidak termasuk: blog, CMS, form kontak, data GitHub yang diambil live, analytics
 3. Aksi kontak HARUS ada di nav dan muncul lagi setelah bagian proyek (anatomi Hallmark untuk tugas "hire").
 4. Setiap jendela setinggi 900px pada lebar 1440px HARUS memuat sekitar 80 kata atau kurang, dan total kata yang terlihat di satu halaman maksimal 450 (Hallmark Floor 13).
 5. Daftar proyek HARUS dibaca dari folder proyek (Requirement 4).
-6. Setiap entri pengalaman HARUS menyebut jabatan, perusahaan, dan periode; jenis kerja dan lokasi ditampilkan bila datanya ada.
+6. Setiap entri pengalaman HARUS menyebut jabatan, perusahaan, dan periode; jenis kerja (misalnya magang) dan lokasi ditampilkan bila datanya ada.
 7. Setiap item navigasi HARUS menuju bagian atau halaman yang ada (R-24, R-26).
 8. Rentang tanggal HARUS ditulis tanpa em dash maupun en dash, misalnya "Juli 2025 sampai sekarang" (R-02, Hallmark 19).
 9. Status ketersediaan HARUS memakai kalimat yang disetujui di F8.
@@ -117,7 +134,7 @@ Tidak termasuk: blog, CMS, form kontak, data GitHub yang diambil live, analytics
 3. Setelah scaffold Hallmark, sistem HARUS dikunci ke `DESIGN.md` dan dipakai bersama oleh semua halaman; setiap keputusan besar HARUS punya alasan satu baris (R-31).
 4. Semua warna dan font HARUS lewat token (Hallmark Floor 1). Amber berarti orang, posisi saat ini, atau satu aksi utama; biru dingin berarti data terukur; ok dan bad hanya untuk status (tema Console, R-29).
 5. Halaman TIDAK BOLEH memakai: eyebrow atau pill di atas judul, label huruf kapital berjarak, satu kata berwarna di dalam judul, emoji sebagai ikon, gradien, bayangan, glow, ubin logo teknologi, label level keahlian, gerak reveal, parallax, atau hover lift.
-6. Signature HARUS berupa layar asli SIM Stembayo di layar pertama beranda (Q16). Selama layar bersih belum ada, posisinya diisi bingkai dummy dan dicatat sebagai materi yang kurang.
+6. Signature HARUS berupa layar SIM Stembayo di layar pertama beranda (Q16), memakai layar yang dikirim pemilik setelah syarat R1.7 terpenuhi.
 7. Screenshot aplikasi HARUS tampil dalam warna aslinya, tanpa perlakuan duotone tema (Hallmark imagery bagian 4: hasil tangkapan produk tidak diretus).
 8. Situs memakai satu mode gelap, dan alasannya HARUS ditulis di `DESIGN.md` (Q17, R-21).
 
@@ -143,7 +160,7 @@ Tidak termasuk: blog, CMS, form kontak, data GitHub yang diambil live, analytics
 
 1. Situs HARUS dibangun oleh Jekyll bawaan GitHub Pages (build legacy dari `main` root), tanpa build step di sisi pemilik dan tanpa GitHub Actions (F9).
 2. Tailwind Play CDN HARUS dihapus, dan tidak boleh ada script pihak ketiga yang memblokir render di `<head>` (R-40).
-3. Setiap `<img>` HARUS punya `width` dan `height` atau `aspect-ratio`; gambar hero tidak memakai `loading="lazy"` dan memakai `fetchpriority="high"`; gambar lain lazy (R-40).
+3. Setiap `<img>` HARUS punya `width` dan `height` atau `aspect-ratio`; gambar hero tidak memakai `loading="lazy"` dan memakai `fetchpriority="high"`; gambar lain lazy (R-40). Screenshot TIDAK BOLEH ditampilkan lebih lebar dari lebar pikselnya (Hallmark: tidak pernah diperbesar).
 4. Font HARUS memakai `font-display: swap` dan hanya memuat bobot yang dipakai.
 5. File kerja TIDAK BOLEH terbit: `.kiro/`, `.hallmark/`, `DESIGN.md`, `README.md`, `Gemfile`, dan `proyek/_template/`. Ini HARUS diperiksa pada hasil build `_site/`.
 6. `_config.yml` HARUS memakai `theme: null` agar tema bawaan GitHub Pages tidak ikut terbit.
@@ -169,23 +186,19 @@ Tidak termasuk: blog, CMS, form kontak, data GitHub yang diambil live, analytics
 3. Versi kedua skill dipin ke commit tertentu (`design.md` 4.4) dan tidak disalin ke repo (Q22).
 4. PDF LinkedIn tidak di-commit.
 
-## Pertanyaan lanjutan
+## Pertanyaan lanjutan (G)
 
-★ = perlu jawaban karena menyangkut izin, privasi, atau perubahan teknis. Yang lain boleh dijawab "pakai saran".
+★ = perlu jawaban karena menyangkut kejujuran klaim atau izin. Yang lain boleh dijawab "pakai saran".
 
 | ID | Topik | Saran | Memengaruhi |
 | --- | --- | --- | --- |
-| F1 ★ | Screenshot SIM Stembayo | Grafik Play Store tidak dipakai; pemilik mengirim 3 sampai 4 screenshot dari akun demo setelah SktechID mengizinkan; merge menunggu screenshot ini | R1.7, R5.6 |
-| F2 | Peran dan fitur di SIM Stembayo | Hanya fakta LinkedIn dan Play Store, tanpa mengklaim fitur tertentu | R3.2 |
-| F3 | PlsFixTech: bagian yang dibangun di atas template TOKOTO | Tampil dengan keterangan template, tanpa gambar | R1.8 |
-| F4 | Rent System: nama bidang dan hasil LKS 2023 DIY, screenshot | "Proyek LKS 2023 DIY" tanpa hasil, tanpa gambar | R3.2 |
-| F5 | Gamatechno: jenis kerja, yang dibangun, stack | Hanya jabatan, perusahaan, periode | R2.6 |
-| F6 | Program dan status di UT; jurusan dan tahun SMK | UT tampil tanpa nama program sampai dikonfirmasi | R1.1 |
-| F7 ★ | Cara menampilkan nomor HP; GitHub di kontak | Tombol WhatsApp sebagai aksi utama, email kedua, LinkedIn dan GitHub di kontak | R1.5, R2.3 |
-| F8 ★ | Kalimat status yang juga terlihat oleh kantor sekarang | "Terbuka untuk proyek freelance dan posisi full-time." | R2.9 |
-| F9 ★ | Jekyll bawaan GitHub Pages untuk proyek berbasis folder | Ya | R4, R8.1 |
-| F10 | Fokus hero dan letak Asah | Hero fokus aplikasi Flutter untuk bisnis; Asah di Pendidikan dan pelatihan | R2.2 |
-| F11 | Proyek web, Vue.js/Nuxt.js, atau Odoo untuk UMKM | Bila tidak ada, cukup disebut di keahlian | R1.1 |
-| F12 | Daftar keahlian dan tautan sertifikat | Daftar usulan di `content.md`; sertifikat tanpa tautan | R2 |
-| F13 | Urutan proyek, proyek tambahan, label flutter-kiro-skeleton | Urutan di `content.md`; tanpa tambahan; label "Sedang dikerjakan" | R4.3 |
-| F14 | Foto diri | Tidak ada | R5 |
+| G1 ★ | Kelima layar SIM Stembayo: ekspor desain (Figma) atau screenshot aplikasi; siapa yang mendesain UI; apakah aplikasi yang rilis tampil sama | Bila UI didesain orang lain, halaman proyek menulis "Desain UI: tim SktechID" | R1.8 |
+| G2 | Ekspor ulang 3x (1125 px) dengan tiga foto orang diganti; dua salah ketik | Bila tidak sempat, file 1x dipakai dan ketiga foto disamarkan; salah ketik dibiarkan bila memang begitu di aplikasi | R1.7, R8.3 |
+| G3 | Offline sync di versi 1.3 dikerjakan pemilik | Bila ya, jadi sorotan cerita SIM Stembayo | R3.2 |
+| G4 | SIM Stembayo di App Store | Tidak ditemukan saat dicek; tampil sebagai aplikasi Android | R3.2 |
+| G5 | Posisi kedua di SktechID (skill Flutter tertaut ke "2 pengalaman" di sana) | Hanya posisi yang ada di PDF | R2.6 |
+| G6 | Periode pekerjaan Odoo; tampil sebagai pengalaman freelance atau keahlian | Keahlian saja | R2.6 |
+| G7 | "Full-stack" di hero | Tidak dipakai; keahlian web tetap tercantum | R2.2 |
+| G8 | Enam sertifikat yang tampil; arti "DEA" | Enam kelas di `content.md`; DEA tidak tampil | R2 |
+| G9 | Nama resmi SIJA dan tahun mulai SMK | "Sistem Informatika, Jaringan dan Aplikasi"; tahun sesuai LinkedIn | R1.1 |
+| G10 ★ | Persetujuan `content.md` | Build dimulai setelah disetujui | R1.10 |

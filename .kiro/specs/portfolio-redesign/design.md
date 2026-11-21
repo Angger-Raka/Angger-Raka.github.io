@@ -1,6 +1,6 @@
 # Design: Redesign portfolio Angger Raka Sanjaya
 
-Status: **draft v2** (21 Nov 2026). Jawaban Q1 sampai Q24 sudah masuk. Hal yang menunggu jawaban ditandai F1 sampai F14 (`requirements.md`). Rincian per fakta ada di `content.md`.
+Status: **draft v3** (21 Nov 2026). Jawaban Q1 sampai Q24 dan F1 sampai F14 sudah masuk. Hal yang menunggu jawaban ditandai G1 sampai G10 (`requirements.md`). Rincian per fakta ada di `content.md`.
 
 ## 1. Ringkasan
 
@@ -15,7 +15,7 @@ Status: **draft v2** (21 Nov 2026). Jawaban Q1 sampai Q24 sudah masuk. Hal yang 
 
 | Kode | Sumber | Diambil |
 | --- | --- | --- |
-| LI | PDF profil LinkedIn, 2 halaman, dikirim pemilik | 21 Nov 2026 |
+| LI | PDF profil LinkedIn (2 halaman), PDF halaman Keahlian LinkedIn (3 halaman), dan teks keahlian yang ditempel di chat | 21 Nov 2026 |
 | PS | Listing Google Play `id.sch.stembayo.sim` | 21 Nov 2026 |
 | GH | Repo publik github.com/Angger-Raka: README, `pubspec.yaml`, `.csproj`, `App.config`, `docs/brief` | 21 Nov 2026 |
 | U | Jawaban pemilik di chat | 21 Nov 2026 |
@@ -27,26 +27,30 @@ Status: **draft v2** (21 Nov 2026). Jawaban Q1 sampai Q24 sudah masuk. Hal yang 
 | Nama | "Angger Raka sanjaya"; tampil sebagai Angger Raka Sanjaya (Q2) | Wordmark, title |
 | Headline | Mobile & Full-Stack Developer (Flutter, Dart, Vue.js) \| Data Science Enthusiast \| Building Scalable Apps & Digital Solutions | Bahan hero, diringkas (F10) |
 | Lokasi | Yogyakarta dan Sekitarnya | Hero, kontak |
-| Kontak | Nomor HP (tidak ditulis di repo), email Gmail, URL LinkedIn | Kontak (F7) |
+| Kontak | Nomor HP, email Gmail, URL LinkedIn | Kontak; nomor HP hanya sebagai tautan WhatsApp (F7) |
 | Ringkasan | Mahasiswa SI di Universitas Terbuka; mobile dan full-stack developer; jalur Data Science di Asah by Dicoding; Clean Architecture dan BLoC di Flutter; Vue.js/Nuxt.js; sistem web dan Odoo ERP untuk UMKM; terbuka untuk kolaborasi | Faktanya dibagi ke bagian lain; tidak tampil sebagai paragraf |
 | Pengalaman | SktechID (Juli 2025 sampai sekarang), Asah by Dicoding (Agustus 2026 sampai sekarang), Gamatechno (Mei 2023 sampai Agustus 2024) | Pengalaman, pelatihan |
 | Pendidikan | Universitas Terbuka (Juli 2024), SMK Negeri 2 Depok Sleman (2019 sampai Mei 2024) | Pendidikan |
 | Sertifikasi | 4 kelas, tanpa penerbit dan tanggal | Pelatihan |
-| Keahlian teratas | Analytical Skills, Data Cleaning, Visualisasi Data (PDF hanya memuat 3 teratas) | Keahlian (F12) |
+| Keahlian | PDF profil memuat 3 teratas. Halaman Keahlian (F12) memuat 32 keahlian, masing-masing tertaut ke kelas Dicoding, posisi kerja, atau sekolah, serta 14 nama kelas Dicoding | Keahlian dan pelatihan (`content.md`) |
 
 ### 2.3 Konflik dan celah
 
 | Temuan | Sumber | Tindak lanjut |
 | --- | --- | --- |
-| Program kuliah: ringkasan menyebut Sistem Informasi, bagian pendidikan menyebut Information Technology | LI | F6 |
-| UT hanya bertanggal "Juli 2024"; kemungkinan tanggal mulai, masih kuliah | LI | F6 |
-| SMK tanpa jurusan | LI | F6 |
-| Gamatechno tanpa deskripsi, jenis kerja, dan lokasi; periodenya beririsan dengan masa SMK | LI | F5 |
-| SktechID tanpa lokasi (halaman LinkedIn perusahaan menyebut Sleman, DIY) | LI | Tampil tanpa lokasi kecuali dikonfirmasi |
-| Asah adalah program belajar, tapi tercatat sebagai pengalaman kerja | LI | F10 |
-| Vue.js/Nuxt.js dan Odoo ERP untuk UMKM disebut di ringkasan, tanpa proyek atau pengalaman yang menunjukkannya | LI | F11 |
-| Tidak ada pengalaman tercatat antara Agustus 2024 dan Juli 2025 | LI | F11 |
-| Keahlian teratas berorientasi data, padahal audiens utama klien bisnis yang mencari aplikasi | LI, U | F12 |
+| Program kuliah: ringkasan menyebut Sistem Informasi, bagian pendidikan menyebut Information Technology | LI | Selesai (F6): S1 Sistem Informasi |
+| UT hanya bertanggal "Juli 2024" | LI | Selesai (F6): Juli 2024 sampai sekarang |
+| SMK tanpa jurusan | LI | F6: SIJA; nama resmi dan tahun mulai G9 |
+| Gamatechno tanpa deskripsi dan jenis kerja | LI | Selesai (F5): magang, bug fixing |
+| SktechID tanpa lokasi (halaman LinkedIn perusahaan menyebut Sleman, DIY) | LI | Tampil tanpa lokasi |
+| Skill Flutter tertaut ke "2 pengalaman di PT Solusi Karya Technology Indonesia", PDF hanya memuat satu posisi | LI | G5 |
+| "Pengembangan iOS" tertaut ke SktechID, tetapi SIM Stembayo tidak ditemukan di App Store | LI | G4 |
+| Asah adalah program belajar, tapi tercatat sebagai pengalaman kerja | LI | Selesai (F10): masuk pelatihan |
+| Vue.js/Nuxt.js disebut di ringkasan, tanpa proyek | LI | F11: tidak ada proyek; tetap di keahlian, "full-stack" tidak di hero (G7) |
+| Odoo ERP untuk UMKM | LI, U | F11: konfigurasi dan pendampingan implementasi; periode G6 |
+| Tidak ada pengalaman tercatat antara Agustus 2024 dan Juli 2025 | LI | Tetap kosong kecuali G6 memberi periode |
+| Keahlian teratas berorientasi data | LI | Keahlian di situs dikelompokkan, mobile di urutan pertama |
+| "DEA" di daftar keahlian tanpa keterangan | LI | G8 |
 | Durasi hasil hitungan LinkedIn ("1 tahun 5 bulan") akan basi | LI | Hanya rentang tanggal yang tampil |
 | Ringkasan menampilkan "&amp;" alih-alih "&" | LI | Catatan untuk profil LinkedIn, bukan untuk situs |
 
@@ -54,17 +58,18 @@ Status: **draft v2** (21 Nov 2026). Jawaban Q1 sampai Q24 sudah masuk. Hal yang 
 
 | Proyek | Fakta utama | Materi visual | Celah |
 | --- | --- | --- | --- |
-| SIM Stembayo | Aplikasi resmi SMK Negeri 2 Depok Sleman untuk siswa, wali murid, guru, dan admin: presensi harian dan Prakerin, jurnal Prakerin, pengumuman, data siswa; versi 1.3 menambah offline sync presensi dan pengajuan PKL; publisher di Google Play: SktechID (PS). Dibangun dengan Flutter, SOLID, dan Clean Architecture, dibawa sampai rilis di Google Play (LI) | 4 grafik promosi Play Store, memuat data pribadi (2.5) | F1, F2 |
+| SIM Stembayo | Aplikasi resmi SMK Negeri 2 Depok Sleman untuk siswa, wali murid, guru, dan admin: presensi harian dan Prakerin, jurnal Prakerin, pengumuman, data siswa; versi 1.3 menambah offline sync presensi dan pengajuan PKL; publisher di Google Play: SktechID (PS). Dibangun dengan Flutter, SOLID, dan Clean Architecture, dibawa sampai rilis di Google Play (LI). Dua developer mobile; pemilik memulai dan melanjutkan, satu teman ikut sebentar (U) | 5 layar dari pemilik (2.5) | G1 sampai G4 |
 | flutter_boilerplate | Clean Architecture, BLoC, flavor dev/staging/production, lokalisasi Inggris dan Indonesia, GetIt, Dio dengan retry, GoRouter, Firebase; repo dibuat Nov 2025 (GH) | Tidak ada screenshot; struktur `lib/` asli bisa tampil sebagai teks | |
-| Rent System | Aplikasi desktop admin rental mobil: C#, Windows Forms, .NET Framework 4.7.2, Krypton Toolkit, SQL Server lewat typed DataSet; login, kelola mobil, pelanggan, pengguna, jenis identitas, katalog, riwayat transaksi; LKS 2023 DIY (GH) | Tidak ada screenshot | F4 |
-| PlsFixTech | README menyebutnya Simple Private Chat: chat realtime untuk komunikasi bisnis dengan klien, login dengan verifikasi email; Firebase Auth, Firestore, Realtime Database, Storage, Provider, GetX; dibangun di atas template UI e-commerce TOKOTO; Nov 2022 sampai Jan 2023 (GH) | Gambar README adalah thumbnail tutorial template | F3 |
+| Rent System | Aplikasi desktop admin rental mobil: C#, Windows Forms, .NET Framework 4.7.2, Krypton Toolkit, SQL Server lewat typed DataSet; login, kelola mobil, pelanggan, pengguna, jenis identitas, katalog, riwayat transaksi (GH). Dibuat saat LKS tingkat DIY 2023, dua hari tanpa internet (U) | Tidak ada; bingkai dummy | |
+| PlsFixTech | Latihan pribadi (U). README menyebutnya Simple Private Chat: chat realtime untuk komunikasi bisnis dengan klien, login dengan verifikasi email; Firebase Auth, Firestore, Realtime Database, Storage, Provider, GetX; dibangun di atas template UI e-commerce TOKOTO; Nov 2022 sampai Jan 2023 (GH) | Tidak ada; gambar README adalah thumbnail tutorial template | |
 | flutter-kiro-skeleton | Skeleton Flutter (Clean Architecture, BLoC) dengan toolkit Kiro dan rencana dua aplikasi contoh (Orbit, Tally) untuk Kiroween 2026 kategori Skeleton Crew; batas submission 4 Des 2026 pukul 14.00 waktu Pasifik; sedang dikerjakan (GH) | Belum ada | F13 |
 
 ### 2.5 Audit materi visual
 
 | Materi | Isi | Keputusan |
 | --- | --- | --- |
-| 4 grafik Play Store SIM Stembayo | Komposisi promosi buatan publisher: judul, latar biru, mockup ponsel. Layarnya memuat nama siswa, NIS, kelas, nama orang tua, nomor WA, dan foto wajah di riwayat presensi | Tidak dipakai (R1.7). Diganti screenshot bersih dari akun demo, dengan izin SktechID (F1) |
+| 4 grafik Play Store SIM Stembayo | Komposisi promosi yang diunggah publisher: judul, latar biru, mockup ponsel. Layarnya memuat nama siswa, NIS, kelas, nama orang tua, nomor WA, dan foto wajah di riwayat presensi | Tidak dipakai (R1.7). Diganti layar dari pemilik (baris berikut) |
+| 5 layar SIM Stembayo dari pemilik (21 Nov 2026), disimpan di `materi-mentah/sim-stembayo/` di luar repo | Beranda, presensi PKL, pengajuan PKL, jurnal harian PKL, login. Empat berukuran 375x812 dan satu 330x1024, dengan status bar "9:41" (ciri ekspor desain 1x). Data contoh, tanpa nama atau NIS siswa. Ada tiga foto orang: foto profil di beranda, foto acara di kartu berita, dan pin peta di presensi. Dua salah ketik di UI | Dipakai setelah G1 dan G2 terjawab: foto orang diganti di file sumber atau disamarkan. Ditampilkan tidak lebih lebar dari lebar pikselnya (R8.3) |
 | `PlsFixTech/assets/images/1.png` sampai `7.png` | Thumbnail seri tutorial template TOKOTO ("Ep 1 Onboard Screen" sampai "Ep 7 Profile Screen") | Tidak dipakai: bukan layar aplikasi pemilik (R1.8, antislop R-38) |
 | `PlsFixTech/assets/images/IMG_20230107_*.jpg` | Foto laptop | Tidak dipakai |
 | `Rent-System/CarRentAdmin/Images/` | Foto mobil (asal tidak diketahui) dan `Profile.jpg` | Tidak dipakai |
@@ -114,7 +119,7 @@ Hallmark dipakai sebagai **build baru**, bukan verb `redesign`, karena verb itu 
 
 1. antislop berjalan dalam mode DURING (Q20). Mode dipilih lewat jawaban atas pertanyaan mode, jadi tidak perlu diumumkan ulang.
 2. Pre-flight Hallmark menulis `.hallmark/preflight.json`.
-3. Pertanyaan Step 1 Hallmark dan konfirmasi aset antislop R-23 sudah terjawab lewat Q1 sampai Q24 dan F1 sampai F14.
+3. Pertanyaan Step 1 Hallmark dan konfirmasi aset antislop R-23 terjawab lewat Q1 sampai Q24, F1 sampai F14, dan G1 sampai G10.
 4. Inventaris disusun dari `content.md`; tugas = `hire`.
 5. Tema Console (by request), lalu `theme.mjs draw --job hire --material <product|words> --theme console`.
 6. Picks block Hallmark untuk beranda dan template halaman proyek dikirim ke pemilik.
@@ -197,9 +202,10 @@ Diringkas dari `references/themes/console.md`:
 
 ### 5.4 Signature
 
-- Layar asli SIM Stembayo di hero beranda (Q16), di dalam panel garis rambut bersama fakta singkatnya: untuk siapa, dan tersedia di Google Play.
-- Grafik promosi Play Store tidak bisa dipakai (2.5). Sampai screenshot bersih ada, hero memakai bingkai dummy, dan stamp mencatat bahwa signature masih menunggu materi.
-- Usulan (F1): build boleh berjalan dengan bingkai dummy, tetapi merge menunggu screenshot ini, karena signature adalah keputusan pemilik.
+- Layar SIM Stembayo di hero beranda (Q16), di dalam panel garis rambut bersama fakta singkatnya: untuk siapa, dan tersedia di Google Play.
+- Usulan komposisi: layar beranda sebagai panel utama dan layar pengajuan PKL di sampingnya. Kelima layar tampil di halaman proyek.
+- Layar 1x berlebar 375 px ditampilkan paling lebar 375 px CSS. Di layar retina hasilnya agak lunak; ekspor 3x (G2) memperbaikinya tanpa mengubah layout.
+- Foto orang di layar beranda dan presensi diganti atau disamarkan sebelum layar masuk repo (R1.7, G2).
 
 ### 5.5 Screenshot dalam warna asli
 
@@ -222,16 +228,16 @@ Diringkas dari `references/themes/console.md`:
 
 ### 6.1 Beranda
 
-Total sekitar 410 dari batas 450 kata.
+Total sekitar 420 dari batas 450 kata.
 
 | # | Bagian | Isi | Kata |
 | --- | --- | --- | --- |
 | 1 | Nav | Wordmark, Proyek, Pengalaman, Kontak, satu aksi kontak (F7) | ~8 |
 | 2 | Hero | Headline maksimal 7 kata, kalimat maksimal 12 kata, status (F8), 2 aksi, layar SIM Stembayo | ≤ 30 |
 | 3 | Proyek (`#proyek`) | Judul otomatis, misalnya "5 proyek, 2022 sampai 2026"; satu panel per proyek: nama, ringkasan, konteks, tahun, stack, tautan ke halamannya | ≤ 140 |
-| 4 | Pengalaman (`#pengalaman`) | Trail: SktechID dan Gamatechno (dan Asah bila F10 memilih pengalaman) | ≤ 70 |
+| 4 | Pengalaman (`#pengalaman`) | Trail: SktechID dan Gamatechno (magang) | ≤ 70 |
 | 5 | Keahlian (`#keahlian`) | Kelompok teks, setiap kelompok bertaut ke buktinya | ≤ 60 |
-| 6 | Pendidikan dan pelatihan (`#pendidikan`) | UT, SMK, Asah, 4 sertifikat | ≤ 60 |
+| 6 | Pendidikan dan pelatihan (`#pendidikan`) | UT, SMK, Asah, 6 sertifikat Dicoding pilihan (G8) | ≤ 70 |
 | 7 | Kontak dan footer (`#kontak`) | WhatsApp, email, LinkedIn, GitHub, lokasi; penutup | ≤ 40 |
 
 ### 6.2 Halaman proyek (`/proyek/<slug>/`)
@@ -240,7 +246,7 @@ Total sekitar 410 dari batas 450 kata.
 | --- | --- | --- | --- |
 | 1 | Nav | Sama dengan beranda; "Proyek" menuju `/#proyek` | ~8 |
 | 2 | Hero | Nama proyek, ringkasan maksimal 12 kata, aksi utama (Google Play atau GitHub) dan kontak, layar utama atau bingkai dummy | ≤ 25 |
-| 3 | Fakta | Panel: peran, konteks, tahun, status, platform, stack, dasar template bila ada | ≤ 40 |
+| 3 | Fakta | Panel: peran, tim, konteks, tahun, status, platform, stack, dasar template atau desain pihak lain bila ada | ≤ 40 |
 | 4 | Cerita | Isi Markdown dari `index.md` | ≤ 150 |
 | 5 | Layar | 2 sampai 4 layar, hanya bila `screens` berisi 2 atau lebih | ≤ 20 |
 | 6 | Proyek lain dan kontak | Tautan ke proyek sebelum dan berikutnya, aksi kontak | ≤ 30 |
@@ -412,13 +418,14 @@ exclude: [DESIGN.md, README.md, Gemfile, Gemfile.lock, vendor]
 
 | Risiko | Mitigasi |
 | --- | --- |
-| Screenshot memuat data pribadi | Grafik Play Store tidak dipakai; setiap screenshot diperiksa sebelum commit (R1.7) |
-| Screenshot SIM Stembayo belum ada saat build selesai | Bingkai dummy; merge menunggu sesuai jawaban F1 |
+| Screenshot memuat data pribadi | Grafik Play Store tidak dipakai; tiga foto orang di layar pemilik diganti atau disamarkan; setiap screenshot diperiksa sebelum commit (R1.7) |
+| Layar SIM Stembayo hanya 1x | Ditampilkan paling lebar 375 px CSS; diganti ekspor 3x bila tersedia (G2) |
+| Layar adalah ekspor desain, bukan tangkapan aplikasi | Dikonfirmasi lewat G1; bila desain orang lain, kreditnya ditulis (R1.8) |
 | Karya berbasis template terbaca sebagai karya penuh | Field `based_on` tampil di halaman proyek (R1.8) |
 | GitHub Pages hanya membangun `main`, jadi branch tidak bisa dipratinjau online | Build lokal dengan gem yang sama; screenshot di PR |
 | Versi GitHub Pages berubah | `github-pages` 232 dipin di `Gemfile`; versi dicek ulang saat build |
 | Proyek baru ditambah tanpa lint | Template dengan batas kata di komentar; layout menangani field kosong dan gambar yang tidak ada |
 | Batas kata tidak muat isi LinkedIn | Ringkas dengan daftar perubahan; detail pindah ke halaman proyek |
-| Data pekerjaan kantor tampil tanpa izin | Hanya SIM Stembayo (Q6); Gamatechno tanpa proyek sampai F5 |
+| Data pekerjaan kantor tampil tanpa izin | Hanya SIM Stembayo (Q6); Gamatechno tampil sebagai pengalaman magang tanpa proyek (F5) |
 | Skill berubah di tengah jalan | Commit dipin (4.4) |
 | `/tmp` terhapus antar sesi | Task 1.2 di setiap sesi |
