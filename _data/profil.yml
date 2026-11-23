@@ -1,0 +1,62 @@
+# Data beranda. Sumber setiap fakta dicatat di .kiro/specs/portfolio-redesign/content.md.
+nama: Angger Raka Sanjaya
+lokasi: Yogyakarta dan sekitarnya
+status: Terbuka untuk proyek freelance dan posisi full-time.
+
+hero:
+  judul: Aplikasi Flutter dari arsitektur sampai rilis.
+  kalimat: Mobile developer di Yogyakarta, menerima proyek aplikasi untuk bisnis.
+
+kontak:
+  whatsapp: https://wa.me/628895316055?text=Halo%20Angger%2C%20saya%20ingin%20diskusi%20proyek%20aplikasi.
+  email: anggerrakasanjayapamungkas@gmail.com
+  linkedin: https://www.linkedin.com/in/anggerrakasanjaya/
+  linkedin_teks: linkedin.com/in/anggerrakasanjaya
+  github: https://github.com/Angger-Raka
+  github_teks: github.com/Angger-Raka
+
+judul:
+  riwayat: Dari SMK sampai Google Play
+  keahlian: Flutter, Odoo, C#, dan Python
+  kontak: Diskusi proyek lewat WhatsApp atau email
+
+# Kerja, kuliah, dan pelatihan dalam satu trail, terbaru di atas.
+riwayat:
+  - periode: Agustus 2026 sampai sekarang
+    judul: Asah led by Dicoding
+    sub: Pelatihan Data Science Specialist
+  - periode: Juli 2025 sampai sekarang
+    judul: Mobile Application Developer
+    sub: PT Solusi Karya Technology Indonesia, freelance
+    saat_ini: true
+    baris: Membangun SIM Stembayo dengan Flutter sampai rilis di Google Play.
+    tautan_teks: SIM Stembayo
+    tautan: /proyek/sim-stembayo/
+  - periode: Juli 2024 sampai sekarang
+    judul: Universitas Terbuka
+    sub: S1 Sistem Informasi
+  - periode: Mei 2023 sampai Agustus 2024
+    judul: Flutter Developer
+    sub: PT Gamatechno Indonesia, magang
+    baris: Bug fixing aplikasi Flutter, belajar BLoC dan dependency injection.
+  - periode: 2019 sampai Mei 2024
+    judul: SMK Negeri 2 Depok Sleman
+    sub: Sistem Informatika, Jaringan dan Aplikasi (SIJA)
+
+keahlian:
+  - kelompok: Mobile
+    isi: Flutter, Dart, BLoC, Clean Architecture, SOLID, Firebase, Android, iOS
+  - kelompok: Web
+    isi: HTML, JavaScript, PHP, Vue.js, Nuxt.js
+  - kelompok: Sistem bisnis
+    isi: "Odoo ERP untuk UMKM: proses bisnis, konfigurasi, pendampingan implementasi"
+  - kelompok: Desktop
+    isi: C#, Windows Forms, SQL Server
+  - kelompok: Data
+    isi: Python, SQL, analisis dan visualisasi data, machine learning
+  - kelompok: Alat
+    isi: Git, GitHub
+  - kelompok: Kelas Dicoding
+    isi: Antara lain Flutter, Dart, SOLID, Git, SQL, dan machine learning
+
+bulan: [Januari, Februari, Maret, April, Mei, Juni, Juli, Agustus, September, Oktober, November, Desember]

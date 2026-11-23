@@ -1,0 +1,14 @@
+{%- assign profil = site.data.profil -%}
+<header class="site-header">
+  <nav class="container" aria-label="Utama">
+    <div class="nav-bar">
+      <a class="wordmark" href="{{ home }}">{{ profil.nama }}</a>
+      <ul class="nav-links" role="list">
+        <li><a href="{{ root }}#proyek">Proyek</a></li>
+        <li><a href="{{ root }}#pengalaman">Pengalaman</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+      <a class="btn nav-action" href="{{ profil.kontak.whatsapp }}">Chat di WhatsApp</a>
+    </div>
+  </nav>
+</header>

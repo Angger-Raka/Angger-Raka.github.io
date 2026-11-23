@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'id' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- include root.html %}
+  {%- if page.url == "/" -%}
+    {%- assign judul = page.title | default: site.title -%}
+  {%- else -%}
+    {%- assign judul = page.title | append: " | " | append: site.title -%}
+  {%- endif -%}
+  {%- assign deskripsi = page.description | default: page.summary | default: site.description %}
+  <title>{{ judul }}</title>
+  <meta name="description" content="{{ deskripsi | escape }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="id_ID">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:title" content="{{ judul | escape }}">
+  <meta property="og:description" content="{{ deskripsi | escape }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:image" content="{{ '/assets/img/og.png' | absolute_url }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="{{ root }}assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;500&family=Host+Grotesk:wght@400;500&display=swap">
+  <link rel="stylesheet" href="{{ root }}assets/css/site.css">
+</head>
+<body>
+  <a class="skip" href="#main">Langsung ke isi</a>
+  {% include nav.html %}
+  <main id="main">
+{{ content }}
+  </main>
+  {% include footer.html %}
+  <script>window.hallmarkSlots = (m) => { for (const [k, v] of Object.entries(m)) { const s = document.querySelector(`[data-slot="${k}"]`); if (!s) continue; const im = new Image(); im.src = typeof v === 'string' ? v : v.src; im.alt = (typeof v === 'object' && v.alt) || s.dataset.alt || ''; s.querySelectorAll(':scope > img').forEach((o) => o.remove()); s.prepend(im); } };
+document.querySelectorAll('[data-slot] img').forEach((i) => { if (i.complete && !i.naturalWidth) i.remove(); else i.addEventListener('error', () => i.remove(), { once: true }); });</script>
+</body>
+</html>

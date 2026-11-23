@@ -1,0 +1,30 @@
+[
+ {
+  "shape": "Index-First",
+  "theme": "console",
+  "axes": "dark/grotesk-sans/chromatic-amber",
+  "hero": "Stage",
+  "nav": "floating pill",
+  "footer": "colophon block",
+  "imagery": "product screens (owner Figma frames, faces blurred) and repo folder trees",
+  "photos": [],
+  "entry": "new build, Jekyll site with folder-based project pages",
+  "fingerprint": "stage-index-trail-table-rows-band",
+  "sections": [
+   "hero",
+   "proyek index",
+   "pengalaman trail",
+   "keahlian table",
+   "pendidikan rows",
+   "kontak band",
+   "footer colophon"
+  ],
+  "signature": "two SIM Stembayo screens in the hero panel",
+  "waived": [
+   "84"
+  ],
+  "prompt": "personal portfolio of a Flutter mobile developer in Yogyakarta for business clients and recruiters, Bahasa Indonesia, technical tone",
+  "date": "2026-11-21",
+  "mode": "build"
+ }
+]

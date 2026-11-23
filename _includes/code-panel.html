@@ -1,0 +1,8 @@
+{%- assign code_text = include.code | strip -%}
+{%- assign code_lines = code_text | newline_to_br | split: "<br />" | size -%}
+<figure class="code-panel">
+  <pre style="--lines: {{ code_lines }}"><code>{{ code_text | escape }}</code></pre>
+  {%- if include.caption %}
+  <figcaption>{{ include.caption }}</figcaption>
+  {%- endif %}
+</figure>

@@ -1,0 +1,122 @@
+---
+layout: base
+---
+{%- include root.html -%}
+{%- assign projects = site.pages | where: "layout", "project" | sort: "order" -%}
+{%- assign screen_count = page.screens | size -%}
+<section class="hero hero--project" aria-labelledby="judul-proyek">
+  <div class="container stage-grid">
+    <div class="stage-text">
+      <h1 id="judul-proyek">{{ page.title }}</h1>
+      <p class="lead">{{ page.summary }}</p>
+      <div class="actions">
+        {%- for l in page.links limit: 1 %}
+        <a class="btn btn--primary" href="{{ l.url }}">{{ l.label }}</a>
+        {%- endfor %}
+        <a class="btn" href="#kontak">Diskusikan proyek</a>
+      </div>
+    </div>
+    {%- if screen_count > 0 %}
+    <figure class="panel">
+      <div class="screens">
+        {%- for s in page.screens limit: 2 %}
+        {% include screen.html slot=s.file src=s.file alt=s.alt w=s.w h=s.h eager=true %}
+        {%- endfor %}
+      </div>
+      {% include panel-facts.html p=page %}
+      {%- if page.screens_note %}
+      <figcaption class="panel-note">{{ page.screens_note }}</figcaption>
+      {%- endif %}
+    </figure>
+    {%- elsif page.code %}
+    {% include code-panel.html code=page.code caption=page.code_caption %}
+    {%- else %}
+    <figure class="panel">
+      <div class="screens">
+        {% include screen.html slot="layar-utama" alt="Screenshot menyusul" w=1080 h=2340 %}
+      </div>
+    </figure>
+    {%- endif %}
+  </div>
+</section>
+
+<section class="section section--first" aria-labelledby="cerita-judul">
+  <div class="container">
+    <div class="head-block story">
+      <h2 id="cerita-judul">{{ page.story_title | default: "Yang dibangun" }}</h2>
+      {{ content }}
+    </div>
+    <table class="rows-table">
+      <tbody>
+        {%- if page.role and screen_count == 0 %}
+        <tr><th scope="row">Peran</th><td>{{ page.role }}</td></tr>
+        {%- endif %}
+        <tr><th scope="row">Konteks</th><td>{{ page.context }}</td></tr>
+        <tr><th scope="row">Tahun</th><td class="measured">{{ page.year }}</td></tr>
+        {%- if page.platform %}
+        <tr><th scope="row">Platform</th><td>{{ page.platform }}</td></tr>
+        {%- endif %}
+        {%- if page.status and screen_count == 0 %}
+        <tr><th scope="row">Status</th><td>{{ page.status }}</td></tr>
+        {%- endif %}
+        <tr><th scope="row">Stack</th><td>{{ page.stack | join: ", " }}</td></tr>
+        {%- if page.based_on %}
+        <tr><th scope="row">Dasar</th><td>{{ page.based_on }}</td></tr>
+        {%- endif %}
+        {%- if page.design %}
+        <tr><th scope="row">Desain UI</th><td>{{ page.design }}</td></tr>
+        {%- endif %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+{%- if page.reading %}
+<section class="reading-section" aria-labelledby="reading-judul">
+  <div class="container">
+    <div class="panel reading">
+      <div>
+        <p class="reading-label">{{ page.reading.label }}</p>
+        <p class="reading-value measured">{{ page.reading.value }}</p>
+        {%- if page.reading.date %}
+        <p class="reading-date measured">{{ page.reading.date }}</p>
+        {%- endif %}
+      </div>
+      <div class="reading-body">
+        <h2 id="reading-judul">{{ page.reading.title }}</h2>
+        <ul>
+          {%- for line in page.reading.lines %}
+          <li>{{ line }}</li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+{%- if screen_count > 2 %}
+<section class="section" aria-labelledby="layar-judul">
+  <div class="container">
+    <h2 id="layar-judul">Layar aplikasi</h2>
+    <div class="screen-row">
+      {%- for s in page.screens offset: 2 %}
+      {% include screen.html slot=s.file src=s.file alt=s.alt w=s.w h=s.h caption=s.caption fixed=true %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+<section class="section" aria-labelledby="lain-judul">
+  <div class="container">
+    <h2 id="lain-judul">Proyek lain</h2>
+    <ul class="other" role="list">
+      {%- for p in projects %}{% unless p.url == page.url %}
+      <li><a href="{{ p.url | remove_first: '/' | prepend: root }}">{{ p.title }}</a><span class="measured">{{ p.year }}</span></li>
+      {%- endunless %}{% endfor %}
+    </ul>
+  </div>
+</section>
+
+{% include kontak.html %}

@@ -1,0 +1,19 @@
+{%- assign profil = site.data.profil -%}
+<section class="band" id="kontak" aria-labelledby="kontak-judul">
+  <div class="container contact-grid">
+    <div>
+      <h2 id="kontak-judul">{{ profil.judul.kontak }}</h2>
+      <p class="lead contact-lead">{{ profil.status }}</p>
+      <div class="actions">
+        <a class="btn btn--primary" href="{{ profil.kontak.whatsapp }}">Chat di WhatsApp</a>
+        <a class="btn" href="mailto:{{ profil.kontak.email }}">Kirim email</a>
+      </div>
+    </div>
+    <dl class="contact-list">
+      <div><dt>Email</dt><dd><a href="mailto:{{ profil.kontak.email }}">{{ profil.kontak.email }}</a></dd></div>
+      <div><dt>LinkedIn</dt><dd><a href="{{ profil.kontak.linkedin }}">{{ profil.kontak.linkedin_teks }}</a></dd></div>
+      <div><dt>GitHub</dt><dd><a href="{{ profil.kontak.github }}">{{ profil.kontak.github_teks }}</a></dd></div>
+      <div><dt>Lokasi</dt><dd>{{ profil.lokasi }}</dd></div>
+    </dl>
+  </div>
+</section>

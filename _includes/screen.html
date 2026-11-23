@@ -1,0 +1,16 @@
+{%- comment -%}
+  Satu layar aplikasi. Parameter: slot, src (relatif terhadap halaman), alt, w, h (ukuran piksel file), caption, eager.
+  Lebar tampil dibatasi lebar piksel file, jadi gambar tidak pernah diperbesar.
+  Bila file tidak ada, script slot di base.html membuang gambarnya dan bingkai kosong tetap tampil.
+{%- endcomment -%}
+<figure class="shot">
+  {%- comment -%} fixed=true: satu lebar dan satu tinggi potong untuk deretan layar, dipotong dari atas {%- endcomment -%}
+  <div class="screen{% if include.fixed %} screen--fixed{% endif %}" data-slot="{{ include.slot }}" data-kind="product" data-alt="{{ include.alt | escape }}"{% unless include.fixed %} style="aspect-ratio: {{ include.w }} / {{ include.h }}; max-inline-size: {{ include.w }}px"{% endunless %}>
+    {%- if include.src %}
+    <img src="{{ include.src }}" alt="{{ include.alt | escape }}" width="{{ include.w }}" height="{{ include.h }}"{% if include.eager %} fetchpriority="high"{% else %} loading="lazy" decoding="async"{% endif %}>
+    {%- endif %}
+  </div>
+  {%- if include.caption %}
+  <figcaption>{{ include.caption }}</figcaption>
+  {%- endif %}
+</figure>
